@@ -1,0 +1,87 @@
+/* applies to anything of class "example-class-selector" */
+.example-class-selector {
+	margin-top: 2em;
+}
+
+/* applies to any <p> descendants of an element of class "example-class-selector" */
+.example-class-selector p {
+	/* Colors are in hexadecimal: http://www.colorpicker.com/ */	
+	color: #CC00AA;
+}
+
+/* this style exists to make it obvious that you've successfully linked
+   the CSS to the page. feel free to remove it once the link is working. */
+body {
+    background-image: url("../images/staticmap.png");
+    background-opacity: 0.2;
+    background-color: #cccccc;
+    background-size: 100%;
+    border: 5px gray;
+    padding: 0px;
+}
+
+.jumbotron {
+	position: absolute;
+    top: 0px;
+    width:70%; 
+    margin-left:15%; 
+    margin-right:15%;
+	background: none;
+}
+
+.jumbotron:after {
+     content:"";
+     /*background: url("http://lorempixel.com/1140/283");*/
+     opacity: 0.2;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     position: absolute;
+     z-index: -1;	
+}
+
+.project {
+    margin-left: 20px;
+    background-color: #deebf7;
+    padding: 20px;
+    width: 525px;
+}
+
+.btn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 30px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  width:100%; 
+    
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+.bottomposition {
+    position: absolute;
+    bottom:35px;
+    width:70%; 
+    margin-left:15%; 
+    margin-right:15%;
+}
+
