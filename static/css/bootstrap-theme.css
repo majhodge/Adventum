@@ -37,6 +37,8 @@
 }
 
 .btn-default {
+  font-size: 0.50;
+  width : auto;
   text-shadow: 0 1px 0 #fff;
   background-image: -webkit-linear-gradient(top, #ffffff 0%, #e0e0e0 100%);
   background-image: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 100%);
