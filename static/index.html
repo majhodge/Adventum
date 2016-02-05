@@ -27,10 +27,7 @@
       #map_container {
         width: 100%;
         height: 100%;
-        padding-top: 0%;
-        padding-left: 0%;
-        padding-right: 0%;
-        padding-bottom: 0px;
+        z-index: -1;
       }
       #map {
         height: 100%;
@@ -42,16 +39,16 @@
     #bottom {
       width: 100%;
       position:absolute;
-      bottom: 0;
-      -webkit-transform: translateZ(400px);
+      bottom: 2%;
+      z-index: 5;
     }
     #front {
-      -webkit-transform: translateZ(100px);
+      z-index: 5;
     }
       #main {
         text-align: center;
       position: absolute;
-      -webkit-transform: translateZ(100px);
+      
       }
     </style>       
 </head>
@@ -66,14 +63,14 @@
   <div id="bottom" width="100%" class="container" align="center">
     <table>
       <tr>
-          <td><a href="findExplorers.html" class="btn btn-default">Find Explorers</a></td>
-          <td><a href="nearby.html" class="btn btn-default">Nearby</a></td>
-          <td><a href="surprise.html" class="btn btn-default">Surprise Me!</a></td>
+          <td><button class="btn btn-default" onclick="explore()">Find Explorers</button></td>
+          <td><button class="btn btn-default" onclick="placesNearMe()">Places Near Me</button></td>
+          <td><button class="btn btn-default" onclick="surpriseMe()">Surprise Me!</button></td>
       </tr>
     </table>
   </div>
 
-  <div id="map_container" class="container">
+  <div id="map_container">
     <div id="map"></div>
   </div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -82,6 +79,7 @@
   <script src="js/bootstrap.min.js"></script>
 
   <script>
+
     var map;
     var chicago = {lat: 41.85, lng: -87.65};
 
@@ -159,7 +157,20 @@
                         'Error: The Geolocation service failed.' :
                         'Error: Your browser doesn\'t support geolocation.');
     }
+    </script>
 
+    <script>
+        function explore() {
+          window.location.href = "findExplorers.html";
+        }
+
+        function placesNearMe() {
+          window.location.href = "nearby.html";
+        }
+
+        function surpriseMe() {
+          window.location.href = "surprise.html";
+        }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxQHxqVPfhfz5wbVGsvj2ajlmplggd-VE&signed_in=true&callback=initMap" async defer>
     </script>
