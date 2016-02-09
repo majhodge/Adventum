@@ -50,6 +50,7 @@
       position: absolute;
       
       }
+
     </style>       
 </head>
 
@@ -164,34 +165,28 @@
         //trying to implement markers 
     var tajima = {lat: 32.8, lng: -117.2};
 
-    var marker = new google.maps.Marker({
+    var markerTajima = new google.maps.Marker({
       title: "Tajima Ramen",
       position: {lat: 32.8, lng: -117.2},
       url: 'http://www.google.com/',
       map: map
     });
 
-    var infowindow = new google.maps.InfoWindow({
+    var infowindowTajima = new google.maps.InfoWindow({
     content: "This is the content"
   });
 
 
-    google.maps.event.addListener(marker, 'click', function() {
-      window.location.href = marker.url;
+    google.maps.event.addListener(markerTajima, 'click', function() {
+      window.location.href = markerTajima.url;
     });
 
-    /*
-    google.maps.event.addListener(marker, 'mouseover', function(event) {
-          this.setIcon('./images/ramen.jpg');
-          this.setContent("Tajima Ramen");
-      });
-    */
 
-    google.maps.event.addListener(marker, 'mouseover', function(event) {
-          infowindow.open(marker.get('map'), marker);
+    google.maps.event.addListener(markerTajima, 'mouseover', function(event) {
+          infowindowTajima.open(markerTajima.get('map'), markerTajima);
       });
-      google.maps.event.addListener(marker, 'mouseout', function(event) {
-          infowindow.close(marker.get('map'), marker);
+      google.maps.event.addListener(markerTajima, 'mouseout', function(event) {
+          infowindowTajima.close(markerTajima.get('map'), markerTajima);
       });
 
 
@@ -202,20 +197,20 @@
 
 
 
-    var marker = new google.maps.Marker({
+    var markerTest = new google.maps.Marker({
       title: "Test",
       position: {lat: 32.822, lng: -117.179},
       url: 'http://www.google.com/',
       map: map
     });
 
-    var infowindow = new google.maps.InfoWindow({
-    content: "This is the content"
+    var infowindowTest = new google.maps.InfoWindow({
+    content: "This is the test content"
   });
 
 
-    google.maps.event.addListener(marker, 'click', function() {
-      window.location.href = marker.url;
+    google.maps.event.addListener(markerTest, 'click', function() {
+      window.location.href = markerTest.url;
     });
 
     /*
@@ -225,18 +220,18 @@
       });
     */
 
-    google.maps.event.addListener(marker, 'mouseover', function(event) {
-          infowindow.open(marker.get('map'), marker);
+    google.maps.event.addListener(markerTest, 'mouseover', function(event) {
+          infowindowTest.open(markerTest.get('map'), markerTest);
       });
-      google.maps.event.addListener(marker, 'mouseout', function(event) {
-          infowindow.close(marker.get('map'), marker);
+      google.maps.event.addListener(markerTest, 'mouseout', function(event) {
+          infowindowTest.close(markerTest.get('map'), markerTest);
       });
 
     //end of trying to implement markers
 
 
 
-    }
+    } //end of initMap
 
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
