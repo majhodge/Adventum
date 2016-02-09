@@ -1,0 +1,265 @@
+<html>
+<head>
+  <title>HCI Project Portfolio</title>  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/homeStyle.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="css/homeStyle.css" rel="stylesheet">
+  <!-- this is a comment in HTML -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    -webkit-perspective: 1000;
+      -webkit-transform-style: preserve-3d;
+    <![endif]--> 
+    <style>
+     html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map_container {
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+      #map {
+        height: 100%;
+      }
+      .center {
+      margin: auto;
+      width: 100%;
+    }
+    #bottom {
+      width: 100%;
+      position:absolute;
+      bottom: 4%;
+      z-index: 5;
+    }
+    #front {
+      z-index: 5;
+    }
+      #main {
+        text-align: center;
+      position: absolute;
+      
+      }
+    </style>       
+</head>
+
+<body>
+
+  <div class="jumbotron" id="front" align="center">
+    <h1>Where do you want to explore?</h1>
+  </div>
+
+
+  <div id="bottom" class="container" align="center">
+    <table width="80%">
+      <tr>
+          <td><button class="btn" onclick="explore()">Find Explorers</button></td>
+          <td><button class="btn" onclick="placesNearMe()">Close Places</button></td>
+          <td><button class="btn" onclick="surpriseMe()">Surprise Me!</button></td>
+      </tr>
+      
+    </table>
+  </div>
+
+  <div id="map_container">
+    <div id="map"></div>
+  </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- Include all compiled plugins (blelow), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+  <script>
+
+    var map;
+    var chicago = {lat: 41.85, lng: -87.65};
+
+    
+    /**
+    * The CenterControl adds a control to the map that recenters the map on Chicago.
+    * This constructor takes the control DIV as an argument.
+    * @constructor
+    */
+    function CenterControl(controlDiv, map) {
+
+        // Set CSS for the control border.
+        var controlUI = document.createElement('div');
+        controlUI.style.backgroundColor = '#fff';
+        controlUI.style.border = '2px solid #fff';
+        controlUI.style.borderRadius = '3px';
+        controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+      controlUI.style.cursor = 'pointer';
+        controlUI.style.marginBottom = '22px';
+        controlUI.style.textAlign = 'center';
+        controlUI.title = 'Click to recenter the map';
+        controlDiv.appendChild(controlUI);
+
+        // Set CSS for the control interior.
+        var controlText = document.createElement('div');
+        controlText.style.color = 'rgb(25,25,25)';
+        controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+        controlText.style.fontSize = '16px';
+        controlText.style.lineHeight = '38px';
+        controlText.style.paddingLeft = '5px';
+        controlText.style.paddingRight = '5px';
+        controlText.innerHTML = 'Center Map';
+        controlUI.appendChild(controlText);
+
+        // Setup the click event listeners: simply set the map to Chicago.
+        controlUI.addEventListener('click', function() {
+          map.setCenter(chicago);
+        });
+
+    }
+
+
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 10
+      });
+      var infoWindow = new google.maps.InfoWindow({map: map});
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+          };
+
+          // The flag of where you are at 
+          infoWindow.setPosition(pos);
+          infoWindow.setContent('You Are Here!');
+
+          // Arrive at location
+          map.setCenter(pos);
+        }, function() {
+              handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } 
+        else {
+
+          // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+
+        }
+
+        //trying to implement markers 
+    var tajima = {lat: 32.8, lng: -117.2};
+
+    var marker = new google.maps.Marker({
+      title: "Tajima Ramen",
+      position: {lat: 32.8, lng: -117.2},
+      url: 'http://www.google.com/',
+      map: map
+    });
+
+    var infowindow = new google.maps.InfoWindow({
+    content: "This is the content"
+  });
+
+
+    google.maps.event.addListener(marker, 'click', function() {
+      window.location.href = marker.url;
+    });
+
+    /*
+    google.maps.event.addListener(marker, 'mouseover', function(event) {
+          this.setIcon('./images/ramen.jpg');
+          this.setContent("Tajima Ramen");
+      });
+    */
+
+    google.maps.event.addListener(marker, 'mouseover', function(event) {
+          infowindow.open(marker.get('map'), marker);
+      });
+      google.maps.event.addListener(marker, 'mouseout', function(event) {
+          infowindow.close(marker.get('map'), marker);
+      });
+
+
+
+
+
+
+
+
+
+    var marker = new google.maps.Marker({
+      title: "Test",
+      position: {lat: 32.822, lng: -117.179},
+      url: 'http://www.google.com/',
+      map: map
+    });
+
+    var infowindow = new google.maps.InfoWindow({
+    content: "This is the content"
+  });
+
+
+    google.maps.event.addListener(marker, 'click', function() {
+      window.location.href = marker.url;
+    });
+
+    /*
+    google.maps.event.addListener(marker, 'mouseover', function(event) {
+          this.setIcon('./images/ramen.jpg');
+          this.setContent("Tajima Ramen");
+      });
+    */
+
+    google.maps.event.addListener(marker, 'mouseover', function(event) {
+          infowindow.open(marker.get('map'), marker);
+      });
+      google.maps.event.addListener(marker, 'mouseout', function(event) {
+          infowindow.close(marker.get('map'), marker);
+      });
+
+    //end of trying to implement markers
+
+
+
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+    }
+    </script>
+
+    <script>
+        function explore() {
+          window.location.href = "findExplorers.html";
+        }
+
+        function placesNearMe() {
+          window.location.href = "nearby.html";
+        }
+
+        function surpriseMe() {
+          window.location.href = "surprise.html";
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxQHxqVPfhfz5wbVGsvj2ajlmplggd-VE&signed_in=true&callback=initMap" async defer>
+    </script>
+</body>
+</html>
