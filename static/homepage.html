@@ -56,8 +56,8 @@
 
 <body>
 
-  <div class="jumbotron" id="front" align="center">
-    <h1>Where do you want to explore?</h1>
+  <div class="jumbotron" id="front" align="center" style="padding-top: 15%">
+    <h1>Exploring Nearby</h1>
   </div>
 
 
@@ -65,7 +65,7 @@
     <table width="80%">
       <tr>
           <td><button class="btn" onclick="explore()">Find Explorers</button></td>
-          <td><button class="btn" onclick="placesNearMe()">Close Places</button></td>
+          <!-- <td><button class="btn" onclick="placesNearMe()">Close Places</button></td> -->
           <td><button class="btn" onclick="surpriseMe()">Surprise Me!</button></td>
       </tr>
       
@@ -214,9 +214,9 @@
           window.location.href = "findExplorers.html";
         }
 
-        function placesNearMe() {
-          window.location.href = "nearby.html";
-        }
+        // function placesNearMe() {
+        //   window.location.href = "nearby.html";
+        // }
 
         function surpriseMe() {
           window.location.href = "surprise.html";
