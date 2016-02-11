@@ -162,9 +162,14 @@
 
         }
 
-        //trying to implement markers 
-    var tajima = {lat: 32.8, lng: -117.2};
 
+      var contentString = '<div id="content">'+
+      '<h3 id="firstHeading" class="firstHeading">Tajima Ramen</h3>'+
+      '<div id="bodyContent">'+
+      '<p> This is where whatever we want to say about the place googleapis </p>' +
+      '</div>';
+
+  
     var markerTajima = new google.maps.Marker({
       title: "Tajima Ramen",
       position: {lat: 32.8, lng: -117.2},
@@ -173,7 +178,7 @@
     });
 
     var infowindowTajima = new google.maps.InfoWindow({
-    content: "This is the content"
+    content: contentString
   });
 
 
@@ -188,9 +193,6 @@
       google.maps.event.addListener(markerTajima, 'mouseout', function(event) {
           infowindowTajima.close(markerTajima.get('map'), markerTajima);
       });
-
-
-
 
 
 
