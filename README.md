@@ -1,4 +1,4 @@
-Lab 2
+Adventum
 ====
 
-Lab 2 introduces you to static HTML, CSS, and Bootstrap.
+This is our CSE 170 Project!
