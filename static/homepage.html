@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>HCI Project Portfolio</title>  
+  <title>Adventum</title>  
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/homeStyle.css" rel="stylesheet">
@@ -8,6 +8,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/bootstrap-theme.min.css" rel="stylesheet">
   <link href="css/homeStyle.css" rel="stylesheet">
+
   <!-- this is a comment in HTML -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -17,75 +18,57 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     -webkit-perspective: 1000;
       -webkit-transform-style: preserve-3d;
-    <![endif]--> 
+    <![endif]
     <style>
      html, body {
         height: 100%;
         margin: 0;
         padding: 0;
       }
-      #map_container {
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-      }
-      #map {
-        height: 100%;
-      }
-      .center {
-      margin: auto;
-      width: 100%;
-    }
-    #bottom {
-      width: 100%;
-      position:absolute;
-      bottom: 4%;
-      z-index: 5;
-    }
-    #front {
-      z-index: 5;
-    }
-      #main {
-        text-align: center;
-      position: absolute;
-      
-      }
-
-    </style>       
+    </style>      --> 
 </head>
 
 <body>
+  <ul class="navigation">
+    <li class="nav-item"><a href="#">My Profile</a></li>
+    <li class="nav-item"><a href="#">Portfolio</a></li>
+    <li class="nav-item"><a href="#">About</a></li>
+    <li class="nav-item"><a href="#">Blog</a></li>
+    <li class="nav-item"><a href="#">Contact</a></li>
+  </ul>
 
-  <div class="jumbotron" id="front" align="center" style="padding-top: 8%">
-    <h1>Exploring Nearby</h1>
-  </div>
+  <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+  <label for="nav-trigger"></label>
+
+  <div class="site-wrap">
+
+      <div class="jumbotron" id="front" align="center" style="padding-top: 8%">
+        <h1>Exploring Nearby</h1>
+      </div>
 
 
-  <div id="bottom" class="container" align="center">
+  
+
+  <div id="map_container">
+    <div id="map"></div>
+    <div id="bottom" class="container" align="center">
     <table width="80%">
       <tr>
           <td><button class="btn" onclick="explore()">Find Explorers</button></td>
           <!-- <td><button class="btn" onclick="placesNearMe()">Close Places</button></td> -->
           <td><button class="btn" onclick="surpriseMe()">Surprise Me!</button></td>
       </tr>
-      
     </table>
   </div>
-
-  <div id="map_container">
-    <div id="map"></div>
   </div>
+
+</div>
+
+
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://code.jquery.com/jquery.js"></script>
   <!-- Include all compiled plugins (blelow), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
-
-
-
-
-
-
-
   <script>
 
     var map;
@@ -196,11 +179,7 @@
 
 
     //end of trying to implement markers
-
-
-
     } //end of initMap
-
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
@@ -224,5 +203,6 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxQHxqVPfhfz5wbVGsvj2ajlmplggd-VE&signed_in=true&callback=initMap" async defer>
     </script>
+    
 </body>
 </html>
