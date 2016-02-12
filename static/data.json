@@ -89,7 +89,11 @@
 {
 	"checkins": [
 		{
-			// Need to create JSON for checkins
+			"name": "JJ Ma",
+			"pic": "./bobbie.jpg",
+			"time": "7 days ago",
+			"status": "Eating some good ramen!"
+
 		}
 	]
 }
