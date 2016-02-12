@@ -263,7 +263,7 @@ body {
 label[for="nav-trigger"] {
   /* critical positioning styles */
   position: fixed;
-  left: 2%; top: 2.5%;
+  left: 3.5%; top: 3.5%;
   z-index: 5;
   
   /* non-critical apperance styles */
