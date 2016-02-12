@@ -1,6 +1,7 @@
 {
 	"places": [
 		{
+			"id": "1",
 			"name": "Tajima Ramen",
 			"type": "Food",
 			"foodtype": "Japanese",			
@@ -8,9 +9,11 @@
 			"link": "http://tajimasandiego.com/",
 			"description": "Welcome to Tajima Convoy. At our original location, our menu features wide variety of Japanese entrees, appetizers, desserts and signature ramen dishes. Drink selections include a rotating list of locally brewed craft beers, imported Japanese craft beers, and premier selection of sake. Our 1,100-sq. foot dining area features a large community table, great for casual dining and meeting new friends, while small private tables allow for a more intimate dining experience. Guests can enjoy lunch, dinner and late night menus offered daily. Stop by and find out why Tajima has the best ramen and Japanese food in town!",
 			"phone": "(858) 576-7244",
-			"address": "4681 Convoy St, Ste I<br>San Diego, CA 92111"
+			"address": "4681 Convoy St, Ste I<br>San Diego, CA 92111",
+			"checkins": "" // Need to link to checkins JSON
 		},
 		{
+			"id": "2",
 			"name": "Hash House A Go Go",	
 			"type": "Food",
 			"foodtype": "Breakfast & Brunch",
@@ -18,9 +21,11 @@
 			"link": "http://www.hashhouseagogo.com",
 			"description": "Hip chain serving creative, market-fresh American brunch & dinner fare, plus signature Bloody Marys.",
 			"phone": "(619) 298-4646",
-			"address": "3628 5th Ave<br>San Diego, CA 92103"
+			"address": "3628 5th Ave<br>San Diego, CA 92103",
+			"checkins": "" // Need to link to checkins JSON
 		},
 		{
+			"id": "3",
 			"name": "Tacos El Gordo",
 			"type": "Food",
 			"foodtype": "Mexican",
@@ -28,9 +33,11 @@
 			"link": "http://tacoselgordobc.com",
 			"description": " It may be a chain restaurant, but the homemade tortillas and spicy pork at the Chula Vista joint keep the locals coming back for more.",
 			"phone": "(619) 691-8848",
-			"address": "689 H St<br>Chula Vista, CA 91910"
+			"address": "689 H St<br>Chula Vista, CA 91910",
+			"checkins": "" // Need to link to checkins JSON
 		},
 		{
+			"id": "4",
 			"name": "Hodad's",
 			"type": "Food",
 			"foodtype": "Burgers",
@@ -38,42 +45,51 @@
 			"link": "http://hodadies.com",
 			"descrption": "At this burger joint patrons can dine inside restored cars or amid license plate-covered walls.",
 			"phone": "(619) 224-4623",
-			"address": "5010 Newport Ave<br>San Diego, CA 92107"
+			"address": "5010 Newport Ave<br>San Diego, CA 92107",
+			"checkins": "" // Need to link to checkins JSON
 		},
 		{
+			"id": "5",
 			"name": "OO Tea",
 			"type": "Food",
 			"foodtype": "Bubble Tea",
 			"image": "images/boba.jpg",
 			"description": "The best Taiwanese Boba Milk Tea in San Diego!",
 			"phone": "(858) 505-9535",
-			"address": "7330 Clairemont Mesa Blvd, Ste A106<br> San Diego, CA 92111"
+			"address": "7330 Clairemont Mesa Blvd, Ste A106<br> San Diego, CA 92111",
+			"checkins": "" // Need to link to checkins JSON
 		},
 		{
+			"id": "6",
 			"name": "Potato Chip Rock",
 			"type": "Hiking",
 			"image": "images/potatochiprock.jpg",
 			"descrption": "Potato Chip Rock - Mt. Woodson Trail is a 6.1 mile out and back trail located near Poway, CA that features a lake and is rated as moderate. ",
 			"phone": "(619) 525-8212",
-			"address": "Mt Woodson Rd, Ramona, CA 92065"
+			"address": "Mt Woodson Rd, Ramona, CA 92065",
+			// Need to link to checkins JSON
 		},
 		{
+			"id": "7",
 			"name": "Balboa Park",
 			"type": "Museums",
 			"image": "images/balboapark.jpg",
 			"link": "http://www.balboapark.org",
 			"description": "Balboa Park is a San Diego must-see, just minutes from downtown, and ranked as one of the Best Parks in the World. The Park is home to 15 major museums, several performing arts venues, lovely gardens and many other cultural and recreational attractions, including the San Diego Zoo.",
 			"phone": "(619) 239-0512",
-			"address": "San Diego, CA"
+			"address": "San Diego, CA",
+			// Need to link to checkins JSON
 		},
 		{
+			"id": "8",
 			"name": "Torrey Pines State Natural Reserve",
 			"type": "Hiking",
 			"image": "images/statereserve.jpg",
 			"link": "http://torreypine.org",
 			"description": "Torrey Pines State Natural Reserve, located on the cliffs above Torrey Pines State Beach, is a 1,750 acre reserve dedicated to preserving its namesake, the Torrey Pine tree and other indigenous wildlife in its native environment.",
 			"phone": "(858) 755-2063",
-			"address": "12600 N Torrey Pines Rd<br>La Jolla, CA 92037"
+			"address": "12600 N Torrey Pines Rd<br>La Jolla, CA 92037",
+			// Need to link to checkins JSON
 		}
 	]
 }
@@ -86,31 +102,21 @@
 			"time": "7 days ago",
 			"status": "Eating some good ramen!"
 
-		}
-	]
-}
+		},
+		{
+			"name": "Ellen Yang",
+			"pic": "./ellen.jpg",
+			"time": "10 days ago",
+			"status": "Yummmmmmm!!"
 
-{
-	"explorers": [
-		{
-			"name": "JJ M",
-			"type": "Friend",		
-			"image": "images/bobbie.jpg"
 		},
 		{
-			"name": "Ellen Y",
-			"type": "Friend of Friend",
-			"image": "images/ellen.jpg"
-		},
-		{
-			"name": "Bob",
-			"type": "Friend of Friend of Friend",
-			"image": "images/doge.jpg"
-		},
-		{
-			"name": "Charice",
-			"type": "Friend of Friend",
-			"image": "images/volleyball.jpg"
+			"name": "Carol Chan",
+			"pic": "./doge.jpeg",
+			"time": "10 days ago",
+			"status": "Yummmmmmm!!"
+
 		}
+
 	]
 }
