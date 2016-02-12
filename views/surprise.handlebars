@@ -19,11 +19,13 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" id={{id}}>
+        {{#each friends}}
         <div class="container">
             <h2>{{name}}</h2>
             <p>{{description}}</p>
         </div>
+        {{/each}}
     </div>
 
 
@@ -148,5 +150,6 @@
     	<script src="https://code.jquery.com/jquery.js"></script>
     	<!-- Include all compiled plugins (blelow), or include individual files as needed -->
     	<script src="js/bootstrap.min.js"></script>
+        <script src="public/js/{javascripti filename}.js"></script>
 </body>
 </html>
