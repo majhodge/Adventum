@@ -16,6 +16,7 @@ var project = require('./routes/project');
 var login = require('./routes/login');
 var homepage =  require('./routes/homepage');
 var findExplorers =  require('./routes/findExplorers');
+var surprise = require('./routes/surprise');
 
 var app = express();
 
@@ -43,9 +44,10 @@ if ('development' == app.get('env')) {
 app.get('/', login.view);
 app.get('/map', homepage.view);
 app.get('/findExplorers', findExplorers.view);
+app.get('/surprise', surprise.view);
 
 
-//app.get('/', index.view);
+//app.get('/index', index.view);
 //app.get('/project/:name', project.viewProject);
 
 
