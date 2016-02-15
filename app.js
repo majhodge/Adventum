@@ -15,6 +15,7 @@ var index = require('./routes/index');
 var project = require('./routes/project');
 var login = require('./routes/login');
 var homepage =  require('./routes/homepage');
+var findExplorers =  require('./routes/findExplorers');
 
 var app = express();
 
