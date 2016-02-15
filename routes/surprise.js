@@ -1,6 +1,10 @@
-var data = require("../data.json"); 
+//var data = require("../data.json"); 
 
-exports.addPlaces = function(req, res) { 
+exports.view = function(req, res) {
+    res.render('surprise');
+};
+
+/*exports.addPlaces = function(req, res) { 
 	var newPlaces = {
 		"name": req.query.name,
 		//"type": req.query.type,
@@ -15,4 +19,4 @@ exports.addPlaces = function(req, res) { 
 	data["places"].push(newPlaces);
 
 	res.render('surprise', data);
- };
+ };*/
