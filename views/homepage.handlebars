@@ -127,36 +127,32 @@
             handleLocationError(false, infoWindow, map.getCenter());
         }
 
+        {{#each places}}
         var contentString = '<div id="content">' +
-            '<h3 id="firstHeading" class="firstHeading">Tajima Ramen</h3>' +
+            '<h3 id="firstHeading" class="firstHeading">{{name}}</h3>' +
             '<div id="bodyContent">' +
-            '<p>' + 'This is where whatever we want to say about the place goes' +
-            '</p>' + '</div' + '</div>';
+            '<p>' + '{{type}}' + '</p>'+
+            '<p>'+ '{{numCheckins}}'+'</p>' + '</div' + '</div>';
 
-        var markerTajima = new google.maps.Marker({
-            title: "Tajima Ramen",
+        var marker = new google.maps.Marker({
+            title: "{{name}}",
             position: {
-                lat: 32.8,
-                lng: -117.2
+                lat: {{lat}},
+                lng: -{{lng}}
             },
             url: 'http://www.google.com/',
             map: map
         });
 
-        var infowindowTajima = new google.maps.InfoWindow({
+        var infowindow = new google.maps.InfoWindow({
             content: contentString
         });
 
-        google.maps.event.addListener(markerTajima, 'click', function() {
-            window.location.href = markerTajima.url;
-        });
 
-        google.maps.event.addListener(markerTajima, 'mouseover', function(event) {
-            infowindowTajima.open(markerTajima.get('map'), markerTajima);
+        google.maps.event.addListener(marker, 'click', function(event) {
+            infowindow.open(marker.get('map'), marker);
         });
-        google.maps.event.addListener(markerTajima, 'mouseout', function(event) {
-            infowindowTajima.close(markerTajima.get('map'), markerTajima);
-        });
+        {{/each}}
 
         //end of trying to implement markers
     } //end of initMap
