@@ -1,14 +1,18 @@
-var data = require("../data.json");
+var data = require("../data.json"); 
 
 exports.addPlaces = function(req, res) { 
 	var newPlaces = {
 		"name": req.query.name,
-		"type": req.query.type,
-		"description": req.query.description,
-		"imageURL": "http://lorempixel.com/400/400/people"
+		//"type": req.query.type,
+		//"foodtype": req.query.foodtype,
+		//"image": req.query.image,
+		//"link": req.query.link,
+		"description": req.query.description
+		//"phone": req.query.phone,
+		//"address": req.query.address,
 	};
-	console.log(newFriend);
-	data["friends"].push(newFriend);
+	console.log(newPlaces);
+	data["places"].push(newPlaces);
 
-	res.render('add', data);
+	res.render('surprise', data);
  };
