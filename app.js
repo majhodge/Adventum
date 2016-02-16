@@ -17,6 +17,7 @@ var login = require('./routes/login');
 var homepage =  require('./routes/homepage');
 var findExplorers =  require('./routes/findExplorers');
 var surprise = require('./routes/surprise');
+var list = require('./routes/list');
 
 var app = express();
 
@@ -45,6 +46,7 @@ app.get('/', login.view);
 app.get('/map', homepage.view);
 app.get('/findExplorers', findExplorers.view);
 app.get('/surprise', surprise.view);
+app.get('/list', list.view);
 
 
 //app.get('/index', index.view);

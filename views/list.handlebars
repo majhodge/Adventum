@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <title>Adventum</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- local css file -->
+    <link href="css/homeStyle.css" rel="stylesheet">
+</head>
+
+<body>
+	<!-- Include hamburger menu -->
+
+	<div class="container" id={{id}}>
+        {{#each places}}
+        <div class="container">
+            <table>
+            	<tr>
+            	<td>
+            		{{id}}
+            	</td>
+            	<td>
+            		<img src="{{image}}" height="50" width="50">
+            	</td>
+            	<td>
+	            	<h2>{{name}}</h2>
+	            	<p>{{type}}</p>
+	            </td>
+	            <td align="center">
+	            	Checkins:<br>
+	            	{{numCheckins}}
+	            </td>
+	            </tr>
+            </table>
+        </div>
+        {{/each}}
+    </div>
+</body>
+
+</html>
