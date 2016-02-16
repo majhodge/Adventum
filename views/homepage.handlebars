@@ -50,7 +50,7 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (blelow), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script>
+    <!--<script>
     var map;
     var chicago = {
         lat: 41.85,
@@ -126,7 +126,7 @@
             // Browser doesn't support Geolocation
             handleLocationError(false, infoWindow, map.getCenter());
         }
-
+        /*
         {{#each places}}
         var contentString = '<div id="content">' +
             '<h3 id="firstHeading" class="firstHeading">{{name}}</h3>' +
@@ -153,6 +153,7 @@
             infowindow.open(marker.get('map'), marker);
         });
         {{/each}}
+        */
 
         //end of trying to implement markers
     } //end of initMap
@@ -163,7 +164,7 @@
             'Error: The Geolocation service failed.' :
             'Error: Your browser doesn\'t support geolocation.');
     }
-    </script>
+    </script>-->
     <script>
     function explore() {
         window.location.href = "/findExplorers";
