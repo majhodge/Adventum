@@ -69,13 +69,6 @@ function createEventMarker(map, infoWindow, name, type, lat, lng) {
         },
         name: name
     });
-
-    /*google.maps.event.addListener(markerTemp, 'click', function() {
-        infoWindow.setContent('<div><strong>' + title + '</strong><br>' +
-        date1 + " at " + hrs1 + ":" + minute1 + ampm1 + '<br>' +
-        price + '</div>' + '<a href="/view"><input type="submit" value="View"></a>');
-        infoWindow.open(map, this);
-    });*/
 }
 
 function callback(result) {
@@ -83,22 +76,12 @@ function callback(result) {
         'use strict';
         $.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + result.places[i].location + "&key=AIzaSyDxQHxqVPfhfz5wbVGsvj2ajlmplggd-VE", locationCallback);
         var place = result.places[i]
-            //var event = result.events[i];
         placesArray.push({
-            name: place.name,
-            type: place.type,
-            lat: place.lat,
-            lng: place.lng
+                name: place.name,
+                type: place.type,
+                lat: place.lat,
+                lng: place.lng
+            }
+        }
 
-            //
-            // title: event.title,
-            // date1: event.date1,
-            // hrs1: event.hrs1,
-            // minute1: event.minute1,
-            // ampm1: event.ampm1,
-            // price: event.price
-        });
-    }
-}
-
-//
+        //
