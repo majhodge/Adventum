@@ -4,12 +4,12 @@
 
 var map;
 var infoWindow;
-var eventsArray = [];
-var currentEvent = 0;
+var placesArray = [];
+var currentPlace = 0;
 
 function initMap() {
     'use strict';
-    //$.get("/jsonevents", callback);
+    $.get("/mapjson", callback);
 
     var mapDiv = document.getElementById('map');
     map = new google.maps.Map(mapDiv, {
@@ -20,9 +20,9 @@ function initMap() {
         zoom: 12
     });
 
-    var infoWindow = new google.maps.InfoWindow({
-            map: map
-        });
+    infoWindow = new google.maps.InfoWindow({
+        map: map
+    });
 
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
@@ -46,4 +46,59 @@ function initMap() {
     }
 }
 
-//AIzaSyDxQHxqVPfhfz5wbVGsvj2ajlmplggd-VE
+function locationCallback(result) {
+    var place = placesArray[currentPlace];
+    currentPlace++;
+
+    createEventMarker(map, infoWindow, place.name, place.type, place.lat, place.lng);
+}
+
+function createEventMarker(map, infoWindow, name, type, lat, lng) {
+
+    var lattitude = parseFloat(lat);
+    var longitude = parseFloat(lng);
+
+    console.log(lattitude);
+    console.log(longitude);
+
+    var markerTemp = new google.maps.Marker({
+        map: map,
+        position: {
+            lat: lattitude,
+            lng: longitude
+        },
+        name: name
+    });
+
+    /*google.maps.event.addListener(markerTemp, 'click', function() {
+        infoWindow.setContent('<div><strong>' + title + '</strong><br>' +
+        date1 + " at " + hrs1 + ":" + minute1 + ampm1 + '<br>' +
+        price + '</div>' + '<a href="/view"><input type="submit" value="View"></a>');
+        infoWindow.open(map, this);
+    });*/
+}
+
+function callback(result) {
+    for (var i = 0; i < result.places.length; i++) {
+        'use strict';
+        $.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + result.places[i].location + "&key=AIzaSyDxQHxqVPfhfz5wbVGsvj2ajlmplggd-VE", locationCallback);
+        var place = result.places[i]
+            //var event = result.events[i];
+        placesArray.push({
+            name: place.name,
+            type: place.type,
+            lat: place.lat,
+            lng: place.lng
+
+            //
+            // title: event.title,
+            // date1: event.date1,
+            // hrs1: event.hrs1,
+            // minute1: event.minute1,
+            // ampm1: event.ampm1,
+            // price: event.price
+        });
+    }
+}
+
+//
