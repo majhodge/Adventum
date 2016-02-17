@@ -17,6 +17,7 @@ function initMap() {
             lat: 32.881263,
             lng: -117.237547
         },
+        disableDefaultUI: true,
         zoom: 12
     });
 
