@@ -77,11 +77,12 @@ function callback(result) {
         $.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + result.places[i].location + "&key=AIzaSyDxQHxqVPfhfz5wbVGsvj2ajlmplggd-VE", locationCallback);
         var place = result.places[i]
         placesArray.push({
-                name: place.name,
-                type: place.type,
-                lat: place.lat,
-                lng: place.lng
-            }
-        }
+            name: place.name,
+            type: place.type,
+            lat: place.lat,
+            lng: place.lng
+        });
+    }
+}
 
-        //
+//
