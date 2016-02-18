@@ -24,15 +24,16 @@
     <div class="site-wrap">
         <div class="container1" id="front" align="center">
             <div class="container3">
-                <h1 style="color:white"><b>Explore with Adventum!</b></h1>
+                <h2 style="color:white"><b>Explore with Adventum!</b></h2>
             </div>
             <div class="container2"></div>
         </div>
+        
         <!-- Map goes in here -->
         <div id="map_container">
             <div id="map"></div>
             <div id="bottom" class="container" align="center">
-                <table width="80%">
+                <table width="100%">
                     <tr>
                         <td class="button-table">
                             <button class="btn1" onclick="explore()">Find Explorers</button>
@@ -50,121 +51,6 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (blelow), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <!--<script>
-    var map;
-    var chicago = {
-        lat: 41.85,
-        lng: -87.65
-    };
-
-
-    /**
-     * The CenterControl adds a control to the map that recenters the map on Chicago.
-     * This constructor takes the control DIV as an argument.
-     * @constructor
-     */
-    function CenterControl(controlDiv, map) {
-        // Set CSS for the control border.
-        var controlUI = document.createElement('div');
-        controlUI.style.backgroundColor = '#fff';
-        controlUI.style.border = '2px solid #fff';
-        controlUI.style.borderRadius = '3px';
-        controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
-        controlUI.style.cursor = 'pointer';
-        controlUI.style.marginBottom = '22px';
-        controlUI.style.textAlign = 'center';
-        controlUI.title = 'Click to recenter the map';
-        controlDiv.appendChild(controlUI);
-
-        // Set CSS for the control interior.
-        var controlText = document.createElement('div');
-        controlText.style.color = 'rgb(25,25,25)';
-        controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
-        controlText.style.fontSize = '16px';
-        controlText.style.lineHeight = '38px';
-        controlText.style.paddingLeft = '5px';
-        controlText.style.paddingRight = '5px';
-        controlText.innerHTML = 'Center Map';
-        controlUI.appendChild(controlText);
-
-        // Setup the click event listeners: simply set the map to Chicago.
-        controlUI.addEventListener('click', function() {
-            map.setCenter(chicago);
-        });
-    }
-
-    function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-            center: {
-                lat: -34.397,
-                lng: 150.644
-            },
-            zoom: 10
-        });
-        var infoWindow = new google.maps.InfoWindow({
-            map: map
-        });
-
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
-
-                // The flag of where you are at 
-                infoWindow.setPosition(pos);
-                infoWindow.setContent('You Are Here!');
-
-                // Arrive at location
-                map.setCenter(pos);
-            }, function() {
-                handleLocationError(true, infoWindow, map.getCenter());
-            });
-        } else {
-            // Browser doesn't support Geolocation
-            handleLocationError(false, infoWindow, map.getCenter());
-        }
-        /*
-        {{#each places}}
-        var contentString = '<div id="content">' +
-            '<h3 id="firstHeading" class="firstHeading">{{name}}</h3>' +
-            '<div id="bodyContent">' +
-            '<p>' + '{{type}}' + '</p>'+
-            '<p>'+ '{{numCheckins}}'+'</p>' + '</div' + '</div>';
-
-        var marker = new google.maps.Marker({
-            title: "{{name}}",
-            position: {
-                lat: {{lat}},
-                lng: -{{lng}}
-            },
-            url: 'http://www.google.com/',
-            map: map
-        });
-
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString
-        });
-
-
-        google.maps.event.addListener(marker, 'click', function(event) {
-            infowindow.open(marker.get('map'), marker);
-        });
-        {{/each}}
-        */
-
-        //end of trying to implement markers
-    } //end of initMap
-
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-            'Error: The Geolocation service failed.' :
-            'Error: Your browser doesn\'t support geolocation.');
-    }
-    </script>-->
     <script>
     function explore() {
         window.location.href = "/findExplorers";
@@ -174,7 +60,8 @@
         window.location.href = "/surprise";
     }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxQHxqVPfhfz5wbVGsvj2ajlmplggd-VE&signed_in=true&callback=initMap" async defer>
+    <script src="js/googlemap.js" ></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer>
     </script>
 </body>
 

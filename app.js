@@ -11,6 +11,7 @@ var handlebars = require('express3-handlebars')
 
 // Example route
 // var user = require('./routes/user');
+var mapjson = require('./routes/mapjson');
 var index = require('./routes/index');
 var project = require('./routes/project');
 var login = require('./routes/login');
@@ -47,6 +48,7 @@ app.get('/map', homepage.view);
 app.get('/findExplorers', list.view);
 app.get('/surprise', surprise.view);
 app.get('/list', list.view);
+app.get('/mapjson', mapjson.view);
 
 
 //app.get('/index', index.view);

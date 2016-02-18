@@ -2,21 +2,26 @@
  * Google Maps to be used in the home screen
  */
 
- var map;
-    var chicago = {
-        lat: 41.85,
-        lng: -87.65
-    };
+var map;
+var infoWindow;
+var placesArray = [];
+var currentPlace = 0;
 
 function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
+    'use strict';
+    $.get("/mapjson", callback);
+
+    var mapDiv = document.getElementById('map');
+    map = new google.maps.Map(mapDiv, {
         center: {
-            lat: -34.397,
-            lng: 150.644
+            lat: 32.881263,
+            lng: -117.237547
         },
-        zoom: 10
+        disableDefaultUI: true,
+        zoom: 12
     });
-    var infoWindow = new google.maps.InfoWindow({
+
+    infoWindow = new google.maps.InfoWindow({
         map: map
     });
 
@@ -28,12 +33,11 @@ function initMap() {
                 lng: position.coords.longitude
             };
 
+            map.setCenter(pos);
             // The flag of where you are at 
             infoWindow.setPosition(pos);
             infoWindow.setContent('You Are Here!');
 
-            // Arrive at location
-            map.setCenter(pos);
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
@@ -41,13 +45,45 @@ function initMap() {
         // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
     }
-
-    //end of trying to implement markers
-} //end of initMap
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-        'Error: The Geolocation service failed.' :
-        'Error: Your browser doesn\'t support geolocation.');
 }
+
+function locationCallback(result) {
+    var place = placesArray[currentPlace];
+    currentPlace++;
+
+    createEventMarker(map, infoWindow, place.name, place.type, place.lat, place.lng);
+}
+
+function createEventMarker(map, infoWindow, name, type, lat, lng) {
+
+    var lattitude = parseFloat(lat);
+    var longitude = parseFloat(lng);
+
+    console.log(lattitude);
+    console.log(longitude);
+
+    var markerTemp = new google.maps.Marker({
+        map: map,
+        position: {
+            lat: lattitude,
+            lng: longitude
+        },
+        name: name
+    });
+}
+
+function callback(result) {
+    for (var i = 0; i < result.places.length; i++) {
+        'use strict';
+        $.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + result.places[i].location + "&key=AIzaSyDxQHxqVPfhfz5wbVGsvj2ajlmplggd-VE", locationCallback);
+        var place = result.places[i]
+        placesArray.push({
+            name: place.name,
+            type: place.type,
+            lat: place.lat,
+            lng: place.lng
+        });
+    }
+}
+
+//
