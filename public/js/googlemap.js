@@ -6,6 +6,7 @@ var map;
 var infoWindow;
 var placesArray = [];
 var currentPlace = 0;
+var infowin;
 
 function initMap() {
     'use strict';
@@ -20,6 +21,10 @@ function initMap() {
         disableDefaultUI: true,
         zoom: 12
     });
+
+    
+
+
 
     infoWindow = new google.maps.InfoWindow({
         map: map
@@ -69,6 +74,25 @@ function createEventMarker(map, infoWindow, name, type, lat, lng) {
             lng: longitude
         },
         name: name
+    });
+
+    var contentString = '<div id="content">' +
+        '<h3 id="firstHeading" class="firstHeading">' +
+        '<a href = "project.handlebars">' + name + '</a>' + '</h3>' +
+        '<div id="bodyContent">' +
+        '<p>' + type +
+        '</p>' +
+        '</div>';
+
+    infowin = new google.maps.InfoWindow({
+        map: map,
+        content: "Starting Content"
+    });
+
+    markerTemp.addListener('click', function() {
+        infowin.close();
+        infowin.setContent(contentString);
+        infowin.open(map, markerTemp);
     });
 }
 
