@@ -1,3 +1,13 @@
+/*
+ * This file contains all logic for Facebook OAuthentication
+ * along with a GET request for FB user posts and respective 
+ * locations. Data will be sent from client side to server side,
+ * which will then be sent back to the client side for the 
+ * Google Maps API to interpret. An alternative to this logic would
+ * involve the use of PassportJS. OAuth logic acquired from
+ * developers.facebook.com.
+ */
+
 // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -21,9 +31,6 @@ function statusChangeCallback(response) {
     }
 }
 
-// This function is called when someone finishes with the Login
-// Button.  See the onlogin handler attached to it in the sample
-// code below.
 function checkLoginState() {
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
@@ -36,20 +43,8 @@ window.fbAsyncInit = function() {
         cookie: true, // enable cookies to allow the server to access 
         // the session
         xfbml: true, // parse social plugins on this page
-        version: 'v2.5' // use graph api version 2.5
+        version: 'v2.5' 
     });
-
-    // Now that we've initialized the JavaScript SDK, we call 
-    // FB.getLoginStatus().  This function gets the state of the
-    // person visiting this page and can return one of three states to
-    // the callback you provide.  They can be:
-    //
-    // 1. Logged into your app ('connected')
-    // 2. Logged into Facebook, but not your app ('not_authorized')
-    // 3. Not logged into Facebook and can't tell if they are logged into
-    //    your app or not.
-    //
-    // These three cases are handled in the callback function.
 
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
@@ -77,14 +72,44 @@ function testAPI() {
             'Thanks for logging in, ' + response.name + '!';
 
     });
-    window.location.href = "/map"
     FB.api(
         '/me',
         'GET', {
             "fields": "id,name,posts{place}"
         },
         function(response) {
-            console.log(response);
+            filterJson(response);
         }
     );
+
+}
+
+function filterJson(toBeReduced) {
+    var places = {
+        location: []
+    };
+    var name = toBeReduced.name;
+    for (var i = 0; i < toBeReduced.posts.data.length; i++) {
+        if (toBeReduced.posts.data[i].place != null) {
+            places.location.push({
+                "username": name,
+                "name": toBeReduced.posts.data[i].place.name,
+                "city": toBeReduced.posts.data[i].place.location.city,
+                "country": toBeReduced.posts.data[i].place.location.country,
+                "latitude": toBeReduced.posts.data[i].place.location.latitude,
+                "longitude": toBeReduced.posts.data[i].place.location.longitude
+            });
+
+        }
+    }
+    postRequest(places);
+}
+
+function postRequest(object) {
+    $.post("/fbData?object=" + JSON.stringify(object), function(response) {
+        console.log("sending to server...")
+        console.log(response);
+    });
+    // move to home view
+    window.location.href = "/map"
 }

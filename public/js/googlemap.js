@@ -11,6 +11,7 @@ var infowin;
 function initMap() {
     'use strict';
     $.get("/mapjson", callback);
+    //$.get("fbData", callback);
 
     var mapDiv = document.getElementById('map');
     map = new google.maps.Map(mapDiv, {
@@ -21,10 +22,6 @@ function initMap() {
         disableDefaultUI: true,
         zoom: 12
     });
-
-    
-
-
 
     infoWindow = new google.maps.InfoWindow({
         map: map
@@ -97,7 +94,9 @@ function createEventMarker(map, infoWindow, name, type, lat, lng) {
 }
 
 function callback(result) {
-    for (var i = 0; i < result.places.length; i++) {
+    for (var i = 0; i < result.places.length;
+i++)
+ {
         'use strict';
         $.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + result.places[i].location + "&key=AIzaSyDxQHxqVPfhfz5wbVGsvj2ajlmplggd-VE", locationCallback);
         var place = result.places[i]

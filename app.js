@@ -19,7 +19,7 @@ var homepage =  require('./routes/homepage');
 var findExplorers =  require('./routes/findExplorers');
 var surprise = require('./routes/surprise');
 var list = require('./routes/list');
-//var fbData =  require('./routes/fbData');
+var fbData =  require('./routes/fbData');
 
 var app = express();
 
@@ -50,6 +50,13 @@ app.get('/findExplorers', list.view);
 app.get('/surprise', surprise.view);
 app.get('/list', list.view);
 app.get('/mapjson', mapjson.view);
+app.post('/fbData', function(req, res){
+	var result = req.query.object; // string form of JSON
+	//var unencrypted = atob(encrypted);
+	console.log(result);
+	// save it to data.json
+	res.json({'status': 'good'});
+});
 
 
 //app.get('/index', index.view);
