@@ -9,44 +9,47 @@
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
 		<link href="/css/homeStyle.css" rel="stylesheet">
+    <!-- Bootstrap core CSS
+    <link href="css/bootstrap-signin.css" rel="stylesheet"> -->
+    <link href="/css/signin.css" rel="stylesheet">
 
     <title>Adventum - Log In</title>
-	    <!-- Bootstrap core CSS
-	    <link href="css/bootstrap-signin.css" rel="stylesheet"> -->
-    <link href="/css/signin.css" rel="stylesheet">
   </head>
 
 	<body>
-		<div class="container" align="center" style="margin-top: 4%">
+		<div class="container, content" align="center" style="margin-top: 20%">
 
-			<div>
-				<font size="10%" align="center"><b>ADVENTUM</b></font>
-			</div>
+        <div class="signin-background">
+        </div>
 
-      <!-- OLD LOGIN FORM AND BUTTONS
-      <form class="form-signin">
-        
-        <h2 class="form-signin-heading">Log In or <a href="signup.html">Sign Up</a></h2>
-      	<label for="inputEmail" class="sr-only">Email Address</label>
-      	<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-      	<label for="inputPassword" class="sr-only">Password</label>
-      	<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+  			<div style="margin-top: 8%; margin-bottom: 20%; margin-left: -4%">
+  				<font size="10%" align="center"><b>ADVENTUM</b></font>
+  			</div>
 
-      	<div class="checkbox" align="left" style="margin-bottom: 10%">
-      		<label>
-      			<input type="checkbox" value="remember-me"> Remember Me
-      		</label>
-      	</div>
+        <!-- OLD LOGIN FORM AND BUTTONS
+        <form class="form-signin">
+          
+          <h2 class="form-signin-heading">Log In or <a href="signup.html">Sign Up</a></h2>
+        	<label for="inputEmail" class="sr-only">Email Address</label>
+        	<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        	<label for="inputPassword" class="sr-only">Password</label>
+        	<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
-       	<a href="/map" class="btn btn-default">Log In</a> 
-       	<a href="/map" class="btn btn-default" onlogin="checkLoginState();">Sign In With Facebook</a>
-      </form> -->
+        	<div class="checkbox" align="left" style="margin-bottom: 10%">
+        		<label>
+        			<input type="checkbox" value="remember-me"> Remember Me
+        		</label>
+        	</div>
 
-     	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-			</fb:login-button>
+         	<a href="/map" class="btn btn-default">Log In</a> 
+         	<a href="/map" class="btn btn-default" onlogin="checkLoginState();">Sign In With Facebook</a>
+        </form> -->
 
-			<div id="status">
-			</div>
+       	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+  			</fb:login-button>
+
+        <div id="status">
+        </div>
 
 		</div> <!-- /container -->
 
