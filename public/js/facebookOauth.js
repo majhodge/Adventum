@@ -82,6 +82,7 @@ function testAPI() {
             filterJson(response);
             console.log(response);
             if(response != null){
+                console.log(response, 'api call');
                 filterJson(response);
             } else {
                 console.log("Data from GET request NULL");
