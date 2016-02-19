@@ -12,6 +12,84 @@ var counter = 0;
 function initMap() {
     'use strict';
     $.get("/mapjson", callback);
+
+    var styles = [{
+        "featureType": "water",
+        "stylers": [{
+            "visibility": "on"
+        }, {
+            "color": "#b5cbe4"
+        }]
+    }, {
+        "featureType": "landscape",
+        "stylers": [{
+            "color": "#efefef"
+        }]
+    }, {
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [{
+            "color": "#83a5b0"
+        }]
+    }, {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [{
+            "color": "#bdcdd3"
+        }]
+    }, {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [{
+            "color": "#ffffff"
+        }]
+    }, {
+        "featureType": "poi.park",
+        "elementType": "geometry",
+        "stylers": [{
+            "color": "#e3eed3"
+        }]
+    }, {
+        "featureType": "administrative",
+        "stylers": [{
+            "visibility": "on"
+        }, {
+            "lightness": 33
+        }]
+    }, {
+        "featureType": "road"
+    }, {
+        "featureType": "poi.park",
+        "elementType": "labels",
+        "stylers": [{
+            "visibility": "on"
+        }, {
+            "lightness": 20
+        }]
+    }, {}, {
+        "featureType": "road",
+        "stylers": [{
+            "lightness": 20
+        }]
+    }]
+
+    // Create a new StyledMapType object, passing it the array of styles,
+    // as well as the name to be displayed on the map type control.
+    var styledMap = new google.maps.StyledMapType(styles, {
+        name: "Styled Map"
+    });
+
+    // Create a map object, and include the MapTypeId to add
+    // to the map type control.
+    var mapOptions = {
+        zoom: 11,
+        center: new google.maps.LatLng(55.6468, 37.581),
+        mapTypeControlOptions: {
+            mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+        }
+    };
+
+
     var mapDiv = document.getElementById('map');
     map = new google.maps.Map(mapDiv, {
         center: {
@@ -21,6 +99,8 @@ function initMap() {
         disableDefaultUI: true,
         zoom: 12
     });
+    map.mapTypes.set('map_style', styledMap);
+    map.setMapTypeId('map_style');
 
     infoWindow = new google.maps.InfoWindow({
         map: map
@@ -117,10 +197,10 @@ function callback(result) {
             },
             name: result.location[i].name
         });
-        
+
         var currentName = result.location[i].name;
 
-        var  contentString = '<div id="content">' +
+        var contentString = '<div id="content">' +
             '<h3 id="firstHeading" class="firstHeading">' +
             '<a href = "project.handlebars">' + result.location[i].name + '</a>' + '</h3>' +
             '<div id="bodyContent">' +
@@ -132,7 +212,7 @@ function callback(result) {
         markerTemp.addListener('click', toggleBounce);
         placesArray.push(markerTemp);
     }
-    
+
     console.log(placesArray[3]);
 }
 
@@ -141,15 +221,15 @@ function toggleBounce() {
     counter++;
     window.alert("Come hither!");
     //console.log("I was clicked", counter);
-     //infowin = new google.maps.InfoWindow({});
+    //infowin = new google.maps.InfoWindow({});
     // infowin.close();
-     //infowin.setContent(contentString);
-     //infowin.open(map, markerTemp);
-  // if (marker.getAnimation() !== null) {
-  //   marker.setAnimation(null);
-  // } else {
-  //   marker.setAnimation(google.maps.Animation.BOUNCE);
-  // }
+    //infowin.setContent(contentString);
+    //infowin.open(map, markerTemp);
+    // if (marker.getAnimation() !== null) {
+    //   marker.setAnimation(null);
+    // } else {
+    //   marker.setAnimation(google.maps.Animation.BOUNCE);
+    // }
 }
 
 //

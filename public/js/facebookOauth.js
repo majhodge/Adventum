@@ -119,5 +119,5 @@ function postRequest(object) {
         console.log(response);
     });
     // move to home view
-   //window.location.href = "/map"
+   window.location.href = "/map"
 }

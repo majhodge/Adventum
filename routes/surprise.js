@@ -7,10 +7,6 @@ exports.view = function(req, res) {
     // console.log(oldData);
 };
 
-
-
-
-
 /*exports.addPlaces = function(req, res) { 
 	var newPlaces = {
 		"name": req.query.name,
