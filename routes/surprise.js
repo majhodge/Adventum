@@ -1,8 +1,8 @@
-var oldOldData = require("../oldOldData.json"); 
+var oldData = require("../oldData.json"); 
 
 exports.view = function(req, res) {
-    res.render(data);
-    console.log(data);
+    res.render(dataData);
+    console.log(dataData);
 };
 
 
