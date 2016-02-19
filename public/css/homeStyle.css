@@ -318,7 +318,6 @@ label[for="nav-trigger"] {
 
 
 /* Make the Magic Happen */
-
 .nav-trigger + label,
 .site-wrap {
     transition: left 0.2s;

@@ -80,12 +80,11 @@ function initMap() {
     // to the map type control.
     var mapOptions = {
         zoom: 11,
-        center: new google.maps.LatLng(55.6468, 37.581),
+        //center: new google.maps.LatLng(55.6468, 37.581),
         mapTypeControlOptions: {
             mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
         }
     };
-
 
     var mapDiv = document.getElementById('map');
     map = new google.maps.Map(mapDiv, {
