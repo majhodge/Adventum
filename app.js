@@ -11,7 +11,7 @@ var handlebars = require('express3-handlebars')
 // Example route
 // var user = require('./routes/user');
 var data = require('./data.json');
-var oldOldData =  require('./oldData.json');
+var oldData =  require('./oldData.json');
 var mapjson = require('./routes/mapjson');
 var index = require('./routes/index');
 var project = require('./routes/project');

@@ -1,8 +1,10 @@
 var oldData = require("../oldData.json"); 
 
 exports.view = function(req, res) {
-    res.render(dataData);
-    console.log(dataData);
+	var rand = Math.floor(Math.random() * oldData.places.length);
+	oldData.currPlace = oldData.places[rand];
+    res.render('surprise', oldData);
+    // console.log(oldData);
 };
 
 /*exports.addPlaces = function(req, res) { 
