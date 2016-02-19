@@ -5,10 +5,6 @@ exports.view = function(req, res) {
     console.log(dataData);
 };
 
-
-
-
-
 /*exports.addPlaces = function(req, res) { 
 	var newPlaces = {
 		"name": req.query.name,
