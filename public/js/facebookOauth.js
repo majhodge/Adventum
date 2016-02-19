@@ -79,6 +79,8 @@ function testAPI() {
             "fields": "id,name,posts{place}"
         },
         function(response) {
+            filterJson(response);
+            console.log(response);
             if(response != null){
                 console.log(response, 'api call');
                 filterJson(response);

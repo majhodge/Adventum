@@ -12,8 +12,6 @@ var counter = 0;
 function initMap() {
     'use strict';
     $.get("/mapjson", callback);
-    // $.get("fbData", callback);
-
     var mapDiv = document.getElementById('map');
     map = new google.maps.Map(mapDiv, {
         center: {

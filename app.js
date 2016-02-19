@@ -11,6 +11,7 @@ var handlebars = require('express3-handlebars')
 // Example route
 // var user = require('./routes/user');
 var data = require('./data.json');
+var oldOldData =  require('./oldData.json');
 var mapjson = require('./routes/mapjson');
 var index = require('./routes/index');
 var project = require('./routes/project');
@@ -50,6 +51,7 @@ app.get('/findExplorers', list.view);
 app.get('/surprise', surprise.view);
 app.get('/list', list.view);
 app.get('/mapjson', mapjson.view);
+
 app.post('/fbData', function(req, res) {
     var result = req.query.object; // string form of JSON
     var jsonify = JSON.parse(result);
@@ -62,7 +64,7 @@ app.post('/fbData', function(req, res) {
         data["location"].push(jsonify[i]);
     }
     // data["locations"].push(jsonify);
-    console.log("HELLO");
+    //console.log("HELLO");
     // console.log(data);
     // save it to data.json
     res.json({

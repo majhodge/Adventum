@@ -1,8 +1,13 @@
-//var data = require("../data.json"); 
+var oldData = require("../oldData.json"); 
 
 exports.view = function(req, res) {
-    res.render('surprise');
+    res.render(dataData);
+    console.log(dataData);
 };
+
+
+
+
 
 /*exports.addPlaces = function(req, res) { 
 	var newPlaces = {
