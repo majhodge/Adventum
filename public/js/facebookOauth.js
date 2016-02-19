@@ -79,7 +79,11 @@ function testAPI() {
             "fields": "id,name,posts{place}"
         },
         function(response) {
-            filterJson(response);
+            if(response != null){
+                filterJson(response);
+            } else {
+                console.log("Data from GET request NULL");
+            }
         }
     );
 
