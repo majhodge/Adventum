@@ -19,7 +19,7 @@ function statusChangeCallback(response) {
     if (response.status === 'connected') {
         // Logged into your app and Facebook.
         testAPI();
-        window.location.href = "/map"
+        //window.location.href = "/map"
     } else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
         document.getElementById('status').innerHTML = 'Please log ' +
@@ -81,6 +81,11 @@ function testAPI() {
         function(response) {
             filterJson(response);
             console.log(response);
+            if(response != null){
+                filterJson(response);
+            } else {
+                console.log("Data from GET request NULL");
+            }
         }
     );
 
@@ -89,6 +94,7 @@ function testAPI() {
 function filterJson(toBeReduced) {
     var places = [];
     var name = toBeReduced.name;
+    console.log(toBeReduced);
     for (var i = 0; i < toBeReduced.posts.data.length; i++) {
         if (toBeReduced.posts.data[i].place != null) {
             places.push({
@@ -112,5 +118,5 @@ function postRequest(object) {
         console.log(response);
     });
     // move to home view
-    window.location.href = "/map"
+   //window.location.href = "/map"
 }
