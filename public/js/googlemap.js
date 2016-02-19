@@ -6,7 +6,8 @@ var map;
 var infoWindow;
 var placesArray = [];
 var currentPlace = 0;
-//var infowin;
+var infowin;
+var counter = 0;
 
 function initMap() {
     'use strict';
@@ -101,43 +102,56 @@ function callback(result) {
     for (var i = 0; i < result.location.length; i++) {
         'use strict';
         //$.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + result.location[i].city + "&key=AIzaSyCap27wvg3NHzW-3B8KpoQ_clhEzFi8Pbs", locationCallback);
-        var place = result.location[i]
-        placesArray.push({
-            username: result.location[i].username,
-            name: result.location[i].name,
-            city: result.location[i].city,
-            lat: result.location[i].latitude,
-            lng: result.location[i].longitude
-        });
+        // var place = result.location[i]
+        // placesArray.push({
+        //     username: result.location[i].username,
+        //     name: result.location[i].name,
+        //     city: result.location[i].city,
+        //     lat: result.location[i].latitude,
+        //     lng: result.location[i].longitude
+        // });
         var markerTemp = new google.maps.Marker({
             map: map,
+            animation: google.maps.Animation.DROP,
             position: {
                 lat: result.location[i].latitude,
                 lng: result.location[i].longitude
             },
             name: result.location[i].name
         });
-
-        var infowin = new google.maps.InfoWindow({
-            map: map
-         });
+        
+        var currentName = result.location[i].name;
 
         var  contentString = '<div id="content">' +
             '<h3 id="firstHeading" class="firstHeading">' +
             '<a href = "project.handlebars">' + result.location[i].name + '</a>' + '</h3>' +
             '<div id="bodyContent">' +
-            '<p>' + result.location[i].city+
+            '<p>' + result.location[i].city +
             '</p>' +
             '</div>';
 
-        markerTemp.addListener('click', function() {
-            infowin.close();
-            infowin.setContent(contentString);
-            infowin.open(map, markerTemp);
-    });
-
+        //markerTemp.addListener('click', createView(contentString,markerTemp));
+        markerTemp.addListener('click', toggleBounce);
+        placesArray.push(markerTemp);
     }
-    console.log(placesArray);
+    
+    console.log(placesArray[3]);
+}
+
+
+function toggleBounce() {
+    counter++;
+    window.alert("Come hither!");
+    //console.log("I was clicked", counter);
+     //infowin = new google.maps.InfoWindow({});
+    // infowin.close();
+     //infowin.setContent(contentString);
+     //infowin.open(map, markerTemp);
+  // if (marker.getAnimation() !== null) {
+  //   marker.setAnimation(null);
+  // } else {
+  //   marker.setAnimation(google.maps.Animation.BOUNCE);
+  // }
 }
 
 //
