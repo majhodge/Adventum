@@ -6,7 +6,7 @@ var map;
 var infoWindow;
 var placesArray = [];
 var currentPlace = 0;
-var infowin;
+//var infowin;
 
 function initMap() {
     'use strict';
@@ -118,9 +118,8 @@ function callback(result) {
             name: result.location[i].name
         });
 
-        infowin = new google.maps.InfoWindow({
-            map: map,
-            content: ""
+        var infowin = new google.maps.InfoWindow({
+            map: map
          });
 
         var  contentString = '<div id="content">' +
@@ -132,9 +131,9 @@ function callback(result) {
             '</div>';
 
         markerTemp.addListener('click', function() {
-        infowin.close();
-        infowin.setContent(contentString);
-        infowin.open(map, markerTemp);
+            infowin.close();
+            infowin.setContent(contentString);
+            infowin.open(map, markerTemp);
     });
 
     }
