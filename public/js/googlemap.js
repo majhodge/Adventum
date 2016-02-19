@@ -11,7 +11,7 @@ var infowin;
 function initMap() {
     'use strict';
     $.get("/mapjson", callback);
-    //$.get("fbData", callback);
+    // $.get("fbData", callback);
 
     var mapDiv = document.getElementById('map');
     map = new google.maps.Map(mapDiv, {
@@ -52,34 +52,35 @@ function initMap() {
 function locationCallback(result) {
     var place = placesArray[currentPlace];
     currentPlace++;
+    console.log(result);
 
-    createEventMarker(map, infoWindow, place.name, place.type, place.lat, place.lng);
+    createEventMarker(map, infoWindow, location.username, location.name, location.city, location.latitude, location.longitude);
 }
 
-function createEventMarker(map, infoWindow, name, type, lat, lng) {
+function createEventMarker(map, infoWindow, username, name, city, lat, lng) {
 
-    var lattitude = parseFloat(lat);
+    var latitude = parseFloat(lat);
     var longitude = parseFloat(lng);
 
-    console.log(lattitude);
+    console.log(latitude);
     console.log(longitude);
 
     var markerTemp = new google.maps.Marker({
         map: map,
         position: {
-            lat: lattitude,
+            lat: latitude,
             lng: longitude
         },
         name: name
     });
 
-    var contentString = '<div id="content">' +
-        '<h3 id="firstHeading" class="firstHeading">' +
-        '<a href = "project.handlebars">' + name + '</a>' + '</h3>' +
-        '<div id="bodyContent">' +
-        '<p>' + type +
-        '</p>' +
-        '</div>';
+    // var  contentString = '<div id="content">' +
+    //     '<h3 id="firstHeading" class="firstHeading">' +
+    //     '<a href = "project.handlebars">' + name + '</a>' + '</h3>' +
+    //     '<div id="bodyContent">' +
+    //     '<p>' + type +
+    //     '</p>' +
+    //     '</div>';
 
     infowin = new google.maps.InfoWindow({
         map: map,
@@ -94,19 +95,30 @@ function createEventMarker(map, infoWindow, name, type, lat, lng) {
 }
 
 function callback(result) {
-    for (var i = 0; i < result.places.length;
-i++)
- {
+    console.log(result);
+    //console.log(result.location.length);
+    console.log(result.location[0].latitude);
+    for (var i = 0; i < result.location.length; i++) {
         'use strict';
-        $.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + result.places[i].location + "&key=AIzaSyDxQHxqVPfhfz5wbVGsvj2ajlmplggd-VE", locationCallback);
-        var place = result.places[i]
+        //$.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + result.location[i].city + "&key=AIzaSyCap27wvg3NHzW-3B8KpoQ_clhEzFi8Pbs", locationCallback);
+        var place = result.location[i]
         placesArray.push({
-            name: place.name,
-            type: place.type,
-            lat: place.lat,
-            lng: place.lng
+            username: result.location[i].username,
+            name: result.location[i].name,
+            city: result.location[i].city,
+            lat: result.location[i].latitude,
+            lng: result.location[i].longitude
+        });
+        var markerTemp = new google.maps.Marker({
+            map: map,
+            position: {
+                lat: result.location[i].latitude,
+                lng: result.location[i].longitude
+            },
+            name: result.location[i].name
         });
     }
+    console.log(placesArray);
 }
 
 //

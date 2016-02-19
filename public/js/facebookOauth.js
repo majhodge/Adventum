@@ -85,29 +85,28 @@ function testAPI() {
 }
 
 function filterJson(toBeReduced) {
-    var places = {
-        location: []
-    };
+    var places = [];
     var name = toBeReduced.name;
     for (var i = 0; i < toBeReduced.posts.data.length; i++) {
         if (toBeReduced.posts.data[i].place != null) {
-            places.location.push({
+            places.push({
                 "username": name,
                 "name": toBeReduced.posts.data[i].place.name,
                 "city": toBeReduced.posts.data[i].place.location.city,
-                "country": toBeReduced.posts.data[i].place.location.country,
+                //"country": toBeReduced.posts.data[i].place.location.country,
                 "latitude": toBeReduced.posts.data[i].place.location.latitude,
                 "longitude": toBeReduced.posts.data[i].place.location.longitude
             });
 
         }
     }
+    //console.log(places);
     postRequest(places);
 }
 
 function postRequest(object) {
     $.post("/fbData?object=" + JSON.stringify(object), function(response) {
-        console.log("sending to server...")
+        console.log("sending facebook data to server...")
         console.log(response);
     });
     // move to home view
