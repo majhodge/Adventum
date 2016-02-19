@@ -19,7 +19,7 @@ function statusChangeCallback(response) {
     if (response.status === 'connected') {
         // Logged into your app and Facebook.
         testAPI();
-        window.location.href = "/map"
+        //window.location.href = "/map"
     } else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
         document.getElementById('status').innerHTML = 'Please log ' +
@@ -111,5 +111,5 @@ function postRequest(object) {
         console.log(response);
     });
     // move to home view
-    window.location.href = "/map"
+   //window.location.href = "/map"
 }
