@@ -118,6 +118,11 @@ function callback(result) {
             name: result.location[i].name
         });
 
+        infowin = new google.maps.InfoWindow({
+            map: map,
+            content: ""
+         });
+
         var  contentString = '<div id="content">' +
             '<h3 id="firstHeading" class="firstHeading">' +
             '<a href = "project.handlebars">' + result.location[i].name + '</a>' + '</h3>' +
