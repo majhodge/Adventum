@@ -92,6 +92,7 @@ function testAPI() {
 function filterJson(toBeReduced) {
     var places = [];
     var name = toBeReduced.name;
+    console.log(toBeReduced);
     for (var i = 0; i < toBeReduced.posts.data.length; i++) {
         if (toBeReduced.posts.data[i].place != null) {
             places.push({
