@@ -10,23 +10,35 @@
 </head>
 
 <body>
-    <div class="container" style="margin-top: 5%">
-        <center><h1>Surprise!</h1></center>
+    <div class="container" style="margin-top: 3%" align="center">
+        <h1>How about this?</h1>
 
         {{#with currPlace}}
-            <div id="{{id}}" align="center" style="margin-top: 8%">
+            <div id="{{id}}" style="margin-top: 8%">
+            	
             	<h2>{{name}}</h2>
             	
             	<img src="{{image}}" height="40%" width="70%">
-                <br>
+               	                
+                <p style="margin-top: 2%">
+                Type: {{type}}
+				<br> Friend Checkins: {{numCheckins}}
+                </p>
+
+                <p style="margin-top: 5%">
+                <a href="{{link}}">{{link}}</a>
+                <br> {{phone}}
+                <br> {{address}}
+                </p>
                 
-                <h3>Type: {{type}}</h3>
-                                
-                Friend Checkins: {{numCheckins}}
+                <p style="margin-top: 5%" align="left">
+                {{description}}
+                </p>
+
             </div>
         {{/with}}
 
-        <p align="center" style="margin-top: 15%">
+        <p align="center" style="margin-top: 8%; margin-bottom: 5%">
             <a href="/map">Back to Map</a>
         </p>
     </div>

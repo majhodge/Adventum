@@ -14,17 +14,18 @@
 <body>
     <ul class="navigation">
         <li class="nav-item"><a href="/map">Adventum</a></li>
-        <li class="nav-item"><a href="/myProfile">My Profile</a></li>
-        <li class="nav-item"><a href="/settings">Settings</a></li>
+       <!-- <li class="nav-item"><a href="/myProfile">My Profile</a></li>
+        <li class="nav-item"><a href="/settings">Settings</a></li> -->
         <li class="nav-item"><a href="/">Logout</a></li>
     </ul>
     <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-    <label for="nav-trigger"></label>
+    <label for="nav-trigger" style="margin-top: 1%; margin-left: 3%"></label>
     <!-- Everything that is not nav menu goes here -->
+
     <div class="site-wrap">
         <div class="container1" id="front" align="center">
-            <div class="container3">
-                <h2 style="color:white"><b>Explore with Adventum!</b></h2>
+            <div class="container3" style="margin-top: -3%">
+                <h2 style="color: white"><b>Explore with Adventum!</b></h2>
             </div>
             <div class="container2"></div>
         </div>
@@ -32,21 +33,35 @@
         <!-- Map goes in here -->
         <div id="map_container">
             <div id="map"></div>
+           
             <div id="bottom" class="container" align="center">
                 <table width="100%">
                     <tr>
-                        <td class="button-table">
+                        <td class="button-table" width="50%">
                             <button class="btn1" onclick="list()">List View</button>
                         </td>
-                        <td class="button-table">
+                        <td class="button-table" width="50%">
                             <button class="btn1" onclick="surpriseMe()">Surprise Me!</button>
                         </td>
                     </tr>
                 </table>
+
+                <!-- <table width="100%">
+                    <tr>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    </tr>
+                </table> -->
             </div>
+
         </div>
     </div>
     <!-- end of site-wrap -->
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (blelow), or include individual files as needed -->
