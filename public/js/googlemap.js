@@ -117,6 +117,21 @@ function callback(result) {
             },
             name: result.location[i].name
         });
+
+        var  contentString = '<div id="content">' +
+            '<h3 id="firstHeading" class="firstHeading">' +
+            '<a href = "project.handlebars">' + result.location[i].name + '</a>' + '</h3>' +
+            '<div id="bodyContent">' +
+            '<p>' + result.location[i].city+
+            '</p>' +
+            '</div>';
+
+        markerTemp.addListener('click', function() {
+        infowin.close();
+        infowin.setContent(contentString);
+        infowin.open(map, markerTemp);
+    });
+
     }
     console.log(placesArray);
 }
