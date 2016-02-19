@@ -2,7 +2,7 @@ var oldData = require("../oldData.json");
 
 exports.view = function(req, res) {
     res.render('list', oldData);
-    console.log(oldData);
+    // console.log(oldData);
 };
 
 /**
