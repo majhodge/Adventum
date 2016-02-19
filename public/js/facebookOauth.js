@@ -80,6 +80,7 @@ function testAPI() {
         },
         function(response) {
             filterJson(response);
+            console.log(response);
         }
     );
 
