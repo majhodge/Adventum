@@ -44,7 +44,7 @@ window.fbAsyncInit = function() {
         cookie: true, // enable cookies to allow the server to access 
         // the session
         xfbml: true, // parse social plugins on this page
-        version: 'v2.5' 
+        version: 'v2.5'
     });
 
     FB.getLoginStatus(function(response) {
@@ -76,12 +76,12 @@ function testAPI() {
     FB.api(
         '/me',
         'GET', {
-            "fields": "id,name,posts{place}"
+            "fields": "id,name,posts.limit(200){place}"
         },
         function(response) {
             filterJson(response);
             console.log(response);
-            if(response != null){
+            if (response != null) {
                 console.log(response, 'api call');
                 filterJson(response);
             } else {
@@ -89,7 +89,6 @@ function testAPI() {
             }
         }
     );
-
 }
 
 function filterJson(toBeReduced) {
@@ -119,5 +118,5 @@ function postRequest(object) {
         console.log(response);
     });
     // move to home view
-   window.location.href = "/map";
+    window.location.href = "/map";
 }
