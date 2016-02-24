@@ -8,21 +8,37 @@
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/navBar.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <ul class="navigation">
-        <li class="nav-item"><a href="/map">Adventum</a></li>
-        <!-- <li class="nav-item"><a href="/myProfile">My Profile</a></li>
-        <li class="nav-item"><a href="/settings">Settings</a></li> -->
-        <li class="nav-item"><a href="/">Logout</a></li>
+    <!-- Top Nav Bar -->
+    <ul class="navbar-list">
+        <li class="navbar-list"><a href="/list"><i class="fa fa-th-list fa-2x"></i></a></li>
+        <li class="navbar-list"><a href="/map"><i class="fa fa-globe fa-2x"></i></a></li>
+        <li class="navbar-list"><a href="#logout"><i class="fa fa-sign-out fa-2x"></i></a></li>
     </ul>
-    <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-    <label for="nav-trigger" style="margin-top: 1%; margin-left: 3%"></label>
-    <!-- Everything that is not nav menu goes here -->
-    <div class="site-wrap">
-        <div class="container" style="margin-top: 3%" align="center">
-            <h1>How about this?</h1> {{#with currPlace}}
+    <br>
+    <div id="logout" class="overlay">
+        <div class="popup">
+            <center>
+            <div class="logout-content">
+                Are you sure you want to logout?<br>
+                <ul class="logout-list">
+                    <li class="logout-list"><a href="#" style="background-color: #333333">Cancel</a></li>
+                    <li class="logout-list"><a href="/" style="background-color: #00B0B0"><b>Logout</b></a></li>
+                </ul>
+            </div>
+            </center>
+        </div>
+    </div>
+    <!-- End of Top Nav Bar code -->
+
+    <div>
+        <div class="container-surprise" style="background-color: #333333; margin-top: 3%" align="center">
+            <h1>How about this?</h1>
+            {{#with currPlace}}
             <div id="{{id}}" style="margin-top: 8%">
                 <h2>{{name}}</h2>
                 <img src="{{image}}" height="40%" width="70%">
@@ -40,9 +56,15 @@
                 </p>
             </div>
             {{/with}}
-            <p align="center" style="margin-top: 8%; margin-bottom: 5%">
-                <a href="/map">Back to Map</a>
-            </p>
+        </div>
+        <div>
+            <table width="100%">
+                <tr>
+                    <td width="100%">
+                        <button class="btn-surprise-again" onclick="surpriseMe()">Not feeling this? Click me again!</button>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -50,6 +72,11 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <!-- <script src="../routes/surprise.js"></script> -->
+    <script>
+        function surpriseMe() {
+            window.location.href = "/surprise";
+        }
+    </script>
 </body>
 
 </html>

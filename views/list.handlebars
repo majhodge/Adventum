@@ -9,51 +9,84 @@
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
     <!-- local css file -->
     <link href="css/homeStyle.css" rel="stylesheet">
+    <link href="css/navBar.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <ul class="navigation">
-        <li class="nav-item"><a href="/map">Adventum</a></li>
-        <!-- <li class="nav-item"><a href="/myProfile">My Profile</a></li>
-        <li class="nav-item"><a href="/settings">Settings</a></li> -->
-        <li class="nav-item"><a href="/">Logout</a></li>
+    <!-- Top Nav Bar -->
+    <ul class="navbar-list">
+        <li class="active navbar-list"><a href="/list"><i class="fa fa-th-list fa-2x"></i></a></li>
+        <li class="navbar-list"><a href="/map"><i class="fa fa-globe fa-2x"></i></a></li>
+        <li class="navbar-list"><a href="#logout"><i class="fa fa-sign-out fa-2x"></i></a></li>
     </ul>
-    <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-    <label for="nav-trigger" style="margin-top: 1%; margin-left: 3%"></label>
-    <!-- Everything that is not nav menu goes here -->
-    <div class="site-wrap">
-        <div class="container" style="margin-top: 7%">
+    <br>
+    <div id="logout" class="overlay">
+        <div class="popup">
             <center>
-                <h1>List View</h1></center>
-            {{#each places}}
-            <div id="{{id}}">
-                <table style="margin-bottom: 3%">
-                    <tr>
-                        <td width="7%">
-                            {{id}}
-                        </td>
-                        <td width="20%">
-                            <img src="{{image}}" height="60px" width="60px">
-                        </td>
-                        <td width="53%">
-                            <!-- <td width="53%" valign="top" style="padding-top: 1%"> -->
-                            <b><a href="{{link}}">{{name}}</a></b>
-                            <br>
-                            <i>Type: {{type}}</i>
-                        </td>
-                        <td align="center" width="20%">
-                            Checkins:
-                            <br> {{numCheckins}}
-                        </td>
-                    </tr>
-                </table>
+            <div class="logout-content">
+                Are you sure you want to logout?<br>
+                <ul class="logout-list">
+                    <li class="logout-list"><a href="#" style="background-color: #333333">Cancel</a></li>
+                    <li class="logout-list"><a href="/" style="background-color: #00B0B0"><b>Logout</b></a></li>
+                </ul>
             </div>
-            {{/each}}
-            <p align="center" style="margin-top: 6%; margin-bottom: 8%">
-                <a href="/map">Back to Map</a>
-            </p>
+            </center>
         </div>
     </div>
+    <!-- End of Top Nav Bar code -->
+
+    <!-- Code if using solid color background -->
+    <div style="background-color: #333333" class="bg-solid"></div>
+    <div class="bg-solid-container">
+        <center>
+            <h1 style="margin-bottom: 5%; color: white; text-shadow: 1px 1px black">List View</h1></center>
+        {{#each places}}
+        <div id="{{id}}">
+            <table class="bg-solid-listView-item" width="100%">
+                <tr>
+                    <td valign="top" width="60px" class="bg-solid-border">
+                        <img src="{{image}}" width="60px" height="60px">
+                    </td>
+                    <td style="padding-left: 8px" align="left" class="bg-solid-border">
+                        <p style="line-height: 125%">{{id}}) <b><a href="{{link}}" style="color: #00B0B0">{{name}}</a></b>
+                        <br><i>Type: {{type}}</i></p>
+                    </td>
+                    <td align="center" width="23%" style="padding-right: 3px" class="bg-solid-border">
+                        Checkins: {{numCheckins}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        {{/each}}
+    </div>
+    <!-- End of code for if using solid color background -->
+
+    <!-- Code if using image background -->
+    <!-- <div class="bg-image" style="background-image: url('http://www.escapenormal.com/wp-content/uploads/2012/06/Torres-del-Paine-Chile.jpg')"></div>
+    <div class="bg-image-container">
+        <center>
+            <h1 style="margin-bottom: 5%; color: white; text-shadow: 1px 1px black">List View</h1></center>
+        {{#each places}}
+        <div id="{{id}}">
+            <table class="bg-image-listView-item" width="100%">
+                <tr>
+                    <td valign="top" width="60px">
+                        <img src="{{image}}" width="60px" height="60px">
+                    </td>
+                    <td style="padding-left: 5px" align="left">
+                        <p style="line-height: 125%">{{id}}) <b><a href="{{link}}" style="color: #00B0B0">{{name}}</a></b>
+                        <br><i>Type: {{type}}</i></p>
+                    </td>
+                    <td align="center" width="23%" style="padding-right: 3px">
+                        Checkins: {{numCheckins}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        {{/each}}
+    </div> -->
+    <!-- End of code for if using image background -->
 </body>
 
 </html>
