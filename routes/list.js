@@ -1,7 +1,7 @@
-var oldData = require("../oldData.json"); 
+var data = require("../data.json"); 
 
 exports.view = function(req, res) {
-    res.render('list', oldData);
+    res.render('list', data);
     // console.log(oldData);
 };
 

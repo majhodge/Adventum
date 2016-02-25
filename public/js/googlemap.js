@@ -138,37 +138,48 @@ function createMarker(lat, lng, name) {
     google.maps.event.addListener(marker, 'click', function() {
         infoWindow.setContent(name);
         infoWindow.open(map, this);
+        
     });
 }
 
 function callback(result) {
-    
+    var contentString = '';
     for (var i = 0; i < result.location.length; i++) {
         console.log(result.location[i]._json);
+        //console.log(result.location[i]._json.picture.data.url);
 
         for (var j = 0; j < result.location[i]._json.posts.data.length; j++) {
 
             try {
-                if(result.location[i]._json.posts.data[j].message != null) {
+                if(result.location[i]._json.posts.data[j].message &&
+                   result.location[i]._json.posts.data[j].place.name) {
                     console.log(result.location[i]._json.posts.data[j].message);
+                    contentString = '<div id="content">' +
+                        '<h4 id="firstHeading" class="firstHeading">' +
+                        '<a href = "">' + result.location[i]._json.posts.data[j].place.name + '</a>' + '</h4>' +
+                        '<img src="' + result.location[i]._json.posts.data[j].picture + '" align="center">' +
+                        '<div id="bodyContent">' +
+                        '<p><b>'+ result.location[i]._json.name + "</b> said: " + result.location[i]._json.posts.data[j].message
+                        '</p>' +
+                        '</div>';
+                } else {
+                    contentString = '<div id="content">' +
+                        '<h4 id="firstHeading" class="firstHeading">' +
+                        '<a href = "">' + result.location[i]._json.posts.data[j].place.name + '</a>' + '</h4>' +
+                        '<img src="' + result.location[i]._json.picture.data.url + '" style="width:40px;height:40px;">' +
+                        '<div id="bodyContent">' +
+                        '<p><b>'+ result.location[i]._json.name + "</b> was here"
+                        '</p>' +
+                        '</div>';
                 }
-                if(result.location[i]._json.posts.data[j].place.name) {
-                    console.log(result.location[i]._json.posts.data[j].place.name);
-                }
+                
                 if(result.location[i]._json.posts.data[j].place.location.latitude) {
-                    console.log(result.location[i]._json.posts.data[j].place.location.latitude);
-                    console.log(result.location[i]._json.posts.data[j].place.location.longitude);
+                    //console.log(result.location[i]._json.posts.data[j].place.location.latitude);
+                    //console.log(result.location[i]._json.posts.data[j].place.location.longitude);
                 }
 
 
-                var contentString = '<div id="content">' +
-                    '<h4 id="firstHeading" class="firstHeading">' +
-                    '<a href = "project.handlebars">' + result.location[i]._json.posts.data[j].place.name + '</a>' + '</h4>' +
-                    '<img src="' + result.location[i]._json.picture.data.url + '" style="width:40px;height:40px;">' +
-                    '<div id="bodyContent">' +
-                    '<p><b>'+ result.location[i]._json.name + "</b> said: " + result.location[i]._json.posts.data[j].message
-                    '</p>' +
-                    '</div>';
+                
 
 
 
@@ -179,7 +190,6 @@ function callback(result) {
             } catch(err) {
                 continue;
             }
-            console.log("=======================================================");
         }
 
         
