@@ -9,40 +9,47 @@
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
     <!-- local css file -->
     <link href="css/homeStyle.css" rel="stylesheet">
+    <link href="css/navBar.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <ul class="navigation">
-        <li class="nav-item"><a href="/map">Adventum</a></li>
-       <!-- <li class="nav-item"><a href="/myProfile">My Profile</a></li>
-        <li class="nav-item"><a href="/settings">Settings</a></li> -->
-        <li class="nav-item"><a href="/">Logout</a></li>
+    <!-- Top Nav Bar -->
+    <ul class="navbar-list">
+        <li class="navbar-list"><a href="/list"><i class="fa fa-th-list fa-2x"></i></a></li>
+        <li class="active navbar-list"><a href="/map"><i class="fa fa-globe fa-2x"></i></a></li>
+        <li class="navbar-list"><a href="#logout"><i class="fa fa-sign-out fa-2x"></i></a></li>
     </ul>
-    <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-    <label for="nav-trigger" style="margin-top: 1%; margin-left: 3%"></label>
-    <!-- Everything that is not nav menu goes here -->
+    <br>
+    <div id="logout" class="overlay">
+        <div class="popup">
+            <center>
+            <div class="logout-content">
+                Are you sure you want to logout?<br>
+                <ul class="logout-list">
+                    <li class="logout-list"><a href="#" style="background-color: #333333">Cancel</a></li>
+                    <li class="logout-list"><a href="/" style="background-color: #00B0B0"><b>Logout</b></a></li>
+                </ul>
+            </div>
+            </center>
+        </div>
+    </div>
+    <!-- End of Top Nav Bar code -->
 
     <div class="site-wrap">
-        <div class="container1" id="front" align="center">
-        <!-- <div class="container2"></div> -->
-            <!-- <div class="container3"> -->
-                <h1 class="header-font">Explore with Adventum!</h1>
-            <!-- </div> -->
-            
-        </div>
         
         <!-- Map goes in here -->
         <div id="map_container">
             <div id="map"></div>
            
-            <div id="bottom" class="container" align="center">
+            <div id="bottom" align="center">
                 <table width="100%">
                     <tr>
-                        <td class="button-table" width="50%">
+                        <!-- <td class="button-table" width="50%">
                             <button class="btn1" onclick="list()">List View</button>
-                        </td>
-                        <td class="button-table" width="50%">
-                            <button class="btn1" onclick="surpriseMe()">Surprise Me!</button>
+                        </td> -->
+                        <td width="100%">
+                            <button class="btn-surprise" onclick="surpriseMe()">Can't decide? Click me!</button>
                         </td>
                     </tr>
                 </table>
@@ -56,13 +63,9 @@
     <!-- Include all compiled plugins (blelow), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script>
-    function list() {
-        window.location.href = "/list";
-    }
-
-    function surpriseMe() {
-        window.location.href = "/surprise";
-    }
+        function surpriseMe() {
+            window.location.href = "/surprise";
+        }
     </script>
     <script src="js/googlemap.js" ></script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer>

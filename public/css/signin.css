@@ -39,8 +39,7 @@ body {
     margin: auto auto;  
     padding: 40px;
 
-    /* White text */
-    color: white;
+    color: white; /* White text */
 
     border-radius: 0px;
     box-shadow: 0 0 5px rgba(0,0,0,1);
