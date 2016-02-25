@@ -60,6 +60,17 @@ passport.use(new FacebookStrategy({
         ]
     },
     function(accessToken, refreshToken, profile, done) {
+
+        var username = profile._json.name;
+        var profilePicture = profile._json.picture.data.url;
+
+
+        console.log("================================");
+        console.log(profilePicture);
+        console.log(username);
+        console.log("================================");
+
+
         data["location"].push(profile);
         return done(null, profile);
     }
