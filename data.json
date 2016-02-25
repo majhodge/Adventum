@@ -1,15 +1,3 @@
 {
-    "location": [{
-        "username": "Bob Ross",
-        "name": "USS Midway",
-        "city": "San Diego",
-        "latitude": 32.713855,
-        "longitude": -117.175118
-    }, {
-        "username": "Bob Ross",
-        "name": "Seaworld Marina",
-        "city": "San Diego",
-        "latitude": 32.766763,
-        "longitude": -117.230809
-    }]
+    "location": []
 }
