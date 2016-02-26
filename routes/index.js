@@ -2,24 +2,6 @@
  * GET home page.
  */
 
-/* For A/B Testing */
- exports.view = function(req, res){
-    var random_num = Math.random();
-    // console.log(random_num);
-
-    // if (random_num > 0.5) {
-    if (random_num >= 0) {
-        res.render('index', projects);
-    } else {
-        res.redirect('/surprise2');
-    }
-};
-
-exports.viewGrid = function(req, res){
-    res.render('index', projects);
-};
-/* End of A/B Testing */
-
 exports.view = function(req, res) {
     res.render('index', {
         "projects": [{
@@ -130,7 +112,7 @@ exports.view = function(req, res) {
     });
 };
 
-/*exports.view = function(req, res) {
+exports.view = function(req, res) {
     res.render('index', {
         'projects': [{
             'name': 'Waiting in Line',
@@ -166,7 +148,7 @@ exports.view = function(req, res) {
             'id': 'project8'
         }]
     });
-};*/
+};
 
 exports.view = function(req, res) {
     res.render('index', {
