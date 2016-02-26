@@ -41,15 +41,13 @@
             {{#with currPlace}}
             <div id="{{id}}" style="margin-top: 8%">
                 <h2>{{name}}</h2>
-                <img src="{{image}}" height="40%" width="70%">
+                <img src="{{picture}}" height="40%" width="70%">
                 <p style="margin-top: 2%">
-                    Type: {{type}}
-                    <br> Friend Checkins: {{numCheckins}}
+                    <b>Where: </b>{{city}}
+                    <br> <b>Friends here:</b> {{username}}
                 </p>
                 <p style="margin-top: 5%">
                     <a href="{{link}}">{{link}}</a>
-                    <br> {{phone}}
-                    <br> {{address}}
                 </p>
                 <p style="margin-top: 5%" align="left">
                     {{description}}

@@ -145,73 +145,16 @@ function createMarker(lat, lng, name) {
 function callback(result) {
     var contentString = '';
     for (var i = 0; i < result.location.length; i++) {
-        console.log(result.location[i]._json);
-        //console.log(result.location[i]._json.picture.data.url);
-
-        for (var j = 0; j < result.location[i]._json.posts.data.length; j++) {
-
-            try {
-                if(result.location[i]._json.posts.data[j].message &&
-                   result.location[i]._json.posts.data[j].place.name) {
-                    console.log(result.location[i]._json.posts.data[j].message);
-                    contentString = '<div id="content">' +
+        //console.log(result.location[i]);
+        var contentString = '<div id="content">' +
                         '<h4 id="firstHeading" class="firstHeading">' +
-                        '<a href = "">' + result.location[i]._json.posts.data[j].place.name + '</a>' + '</h4>' +
-                        '<img src="' + result.location[i]._json.posts.data[j].picture + '" align="center">' +
+                        '<a href = "">' + result.location[i].name + '</a>' + '</h4>' +
+                        '<img src="' + result.location[i].picture + '" align="center">' +
                         '<div id="bodyContent">' +
-                        '<p><b>'+ result.location[i]._json.name + "</b> said: " + result.location[i]._json.posts.data[j].message
+                        '<p><b>'+ result.location[i].username + "</b> said: " + result.location[i].message
                         '</p>' +
                         '</div>';
-                } else {
-                    contentString = '<div id="content">' +
-                        '<h4 id="firstHeading" class="firstHeading">' +
-                        '<a href = "">' + result.location[i]._json.posts.data[j].place.name + '</a>' + '</h4>' +
-                        '<img src="' + result.location[i]._json.picture.data.url + '" style="width:40px;height:40px;">' +
-                        '<div id="bodyContent">' +
-                        '<p><b>'+ result.location[i]._json.name + "</b> was here"
-                        '</p>' +
-                        '</div>';
-                }
-                
-                if(result.location[i]._json.posts.data[j].place.location.latitude) {
-                    //console.log(result.location[i]._json.posts.data[j].place.location.latitude);
-                    //console.log(result.location[i]._json.posts.data[j].place.location.longitude);
-                }
-
-
-                
-
-
-
-
-                createMarker(result.location[i]._json.posts.data[j].place.location.latitude,
-                             result.location[i]._json.posts.data[j].place.location.longitude,
-                             contentString);
-            } catch(err) {
-                continue;
-            }
-        }
-
         
-        //$.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + result.location[i].city + "&key=AIzaSyCap27wvg3NHzW-3B8KpoQ_clhEzFi8Pbs", locationCallback);
-        // var place = result.location[i]
-        // placesArray.push({
-        //     username: result.location[i].username,
-        //     name: result.location[i].name,
-        //     city: result.location[i].city,
-        //     lat: result.location[i].latitude,
-        //     lng: result.location[i].longitude
-        // });
-        // var contentString = '<div id="content">' +
-        //     '<h3 id="firstHeading" class="firstHeading">' +
-        //     '<a href = "project.handlebars">' + result.location[i].name + '</a>' + '</h3>' +
-        //     '<div id="bodyContent">' +
-        //     '<p>' + /*result.location[i].city +*/
-        //     '</p>' +
-        //     '</div>';
-
-        // createMarker(result.location[i].latitude, result.location[i].longitude, contentString);
+        createMarker(result.location[i].latitude, result.location[i].longitude, contentString);
     }
-
-
 }
