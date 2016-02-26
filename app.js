@@ -6,14 +6,11 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars')
-//var jsonpack = require('jsonpack/main');
+    //var jsonpack = require('jsonpack/main');
 var passport = require('passport'),
     FacebookStrategy = require('passport-facebook').Strategy;
 
-
-
-// Example route
-// var user = require('./routes/user');
+// Route definitions
 var data = require('./data.json');
 var oldData = require('./oldData.json');
 var mapjson = require('./routes/mapjson');
@@ -63,19 +60,35 @@ passport.use(new FacebookStrategy({
 
         var username = profile._json.name;
         var profilePicture = profile._json.picture.data.url;
+        var message, picture = '';
+        var latitude, longitude = 0;
 
+        for (var i = 0; i < profile._json.posts.data.length; i++) {
+            if (profile._json.posts.data[i].place != null) {
+                // console.log("message: " + profile._json.posts.data[i].message);
+                // console.log("name: " + profile._json.posts.data[i].place.name);
+                // console.log("latitude: " + profile._json.posts.data[i].place.location.latitude);
+                // console.log("longitude: " + profile._json.posts.data[i].place.location.longitude);
+                // console.log("city: " + profile._json.posts.data[i].place.location.city);
+                // console.log("===============================================================");
 
-        console.log("================================");
-        console.log(profilePicture);
-        console.log(username);
-        console.log("================================");
-
-
-        data["location"].push(profile);
+                data["location"].push({
+                    "username": username,
+                    "profilePicture": profilePicture,
+                    "message": profile._json.posts.data[i].message,
+                    "picture": profile._json.posts.data[i].picture,
+                    "name": profile._json.posts.data[i].place.name,
+                    "latitude": profile._json.posts.data[i].place.location.latitude,
+                    "longitude": profile._json.posts.data[i].place.location.longitude,
+                    "city": profile._json.posts.data[i].place.location.city
+                });
+            }
+        }
         return done(null, profile);
     }
 ));
 
+// for facebook auth purposes
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
@@ -96,31 +109,8 @@ app.get('/surprise', surprise.view);
 app.get('/list', list.view);
 app.get('/mapjson', mapjson.view);
 
-// app.post('/fbData', function(req, res) {
-//     //console.log("I got it!");
-//     var result = req.query.object; // string form of JSON
-//     console.log(result);
-//     var unpacked = jsonpack.unpack(result);
-//     console.log(unpacked);
-//     //var jsonify = JSON.parse(result);
-//     //var unencrypted = atob(encrypted);
-//     // console.log("RESULT");
-//     //console.log(result);
 
-//     // console.log(jsonify);
-//     // for(var i = 0; i < jsonify.length; i++) {
-//     //     data["location"].push(jsonify[i]);
-//     // }
-//     //data["location"].push(jsonify);
-//     // data["locations"].push(jsonify);
-//     //console.log("HELLO");
-//     // console.log(data);
-//     // save it to data.json
-//     // res.json({
-//     //     'status': 'good'
-//     // });
-// });
-
+// facebook auth routes
 app.get('/auth/facebook', passport.authenticate('facebook'));
 
 app.get('/auth/facebook/callback',
