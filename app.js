@@ -49,11 +49,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 passport.use(new FacebookStrategy({
         clientID: '757256881074429',
         clientSecret: 'e39d2ca6d80a8f96adad120bacdb20af',
-        callbackURL: "http://localhost:3000/auth/facebook/callback",
+        callbackURL: "http://adventum.herokuapp.com/auth/facebook/callback",
         profileFields: ['id',
             'displayName',
             'picture.type(large)',
-            'posts.limit(100){message,place,picture,created_time}'
+            'posts.limit(200){message,place,picture,created_time}'
         ]
     },
     function(accessToken, refreshToken, profile, done) {
@@ -71,12 +71,17 @@ passport.use(new FacebookStrategy({
                 // console.log("longitude: " + profile._json.posts.data[i].place.location.longitude);
                 // console.log("city: " + profile._json.posts.data[i].place.location.city);
                 // console.log("===============================================================");
+                if (profile._json.posts.data[i].picture == null) {
+                    picture = "https://lh3.googleusercontent.com/-Q3xtg2x3sOE/AAAAAAAAAAI/AAAAAAAAAA8/S8KiFM0mUw8/s46-c-k/photo.jpg";
+                } else {
+                    picture = profile._json.posts.data[i].picture;
+                }
 
                 data["location"].push({
                     "username": username,
                     "profilePicture": profilePicture,
                     "message": profile._json.posts.data[i].message,
-                    "picture": profile._json.posts.data[i].picture,
+                    "picture": picture,
                     "name": profile._json.posts.data[i].place.name,
                     "latitude": profile._json.posts.data[i].place.location.latitude,
                     "longitude": profile._json.posts.data[i].place.location.longitude,

@@ -79,7 +79,7 @@ function initMap() {
     // Create a map object, and include the MapTypeId to add
     // to the map type control.
     var mapOptions = {
-        zoom: 11,
+        zoom: 14,
         //center: new google.maps.LatLng(55.6468, 37.581),
         mapTypeControlOptions: {
             mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
@@ -93,7 +93,7 @@ function initMap() {
             lng: -117.237547
         },
         disableDefaultUI: true,
-        zoom: 10
+        zoom: 12
     });
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
@@ -146,14 +146,44 @@ function callback(result) {
     var contentString = '';
     for (var i = 0; i < result.location.length; i++) {
         //console.log(result.location[i]);
-        var contentString = '<div id="content">' +
-                        '<h4 id="firstHeading" class="firstHeading">' +
-                        '<a href = "">' + result.location[i].name + '</a>' + '</h4>' +
-                        '<img src="' + result.location[i].picture + '" align="center">' +
-                        '<div id="bodyContent">' +
-                        '<p><b>'+ result.location[i].username + "</b> said: " + result.location[i].message
-                        '</p>' +
-                        '</div>';
+
+        // checking for null message
+        var newMessage;
+        if (result.location[i].message == null) {
+            newMessage = " was here";
+        } else {
+            newMessage = " said: " + result.location[i].message;
+        }
+
+        // checking for null picture
+        var picture;
+        if (result.location[i].picture == null) {
+            picture = result.location[i].profilePicture;
+        } else {
+            picture = result.location[i].picture;
+        }
+
+        // null picture post
+        if (result.location[i].picture != null) {
+            var contentString = '<div id="content">' +
+                            '<h4 id="firstHeading" class="firstHeading">' +
+                            '<a href = "">' + result.location[i].name + '</a>' + '</h4>' +
+                            '<img src="' + picture + '" align="center">' +
+                            '<div id="bodyContent">' +
+                            '<p><b>'+ result.location[i].username + "</b>" + newMessage +
+                            '</p>' +
+                            '</div>';
+        } else {
+            var contentString = '<div id="content">' +
+                            '<h4 id="firstHeading" class="firstHeading">' +
+                            '<a href = "">' + result.location[i].name + '</a>' + '</h4>' +
+                            '<img src="' + picture + '" style="width:40px;height:40px;>' +
+                            '<div id="bodyContent">' +
+                            '<p><b>'+ result.location[i].username + "</b>" + newMessage +
+                            '</p>' +
+                            '</div>';
+        }
+
         
         createMarker(result.location[i].latitude, result.location[i].longitude, contentString);
     }
