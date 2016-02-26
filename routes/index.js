@@ -2,6 +2,24 @@
  * GET home page.
  */
 
+/* For A/B Testing */
+ exports.view = function(req, res){
+    var random_num = Math.random();
+    // console.log(random_num);
+
+    // if (random_num > 0.5) {
+    if (random_num >= 0) {
+        res.render('index', projects);
+    } else {
+        res.redirect('/surprise2');
+    }
+};
+
+exports.viewGrid = function(req, res){
+    res.render('index', projects);
+};
+/* End of A/B Testing */
+
 exports.view = function(req, res) {
     res.render('index', {
         "projects": [{
