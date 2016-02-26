@@ -6,7 +6,7 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars')
-var jsonpack = require('jsonpack/main');
+//var jsonpack = require('jsonpack/main');
 var passport = require('passport'),
     FacebookStrategy = require('passport-facebook').Strategy;
 
