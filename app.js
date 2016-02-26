@@ -6,9 +6,10 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars')
-    //var jsonpack = require('jsonpack/main');
+//var jsonpack = require('jsonpack/main');
 var passport = require('passport'),
     FacebookStrategy = require('passport-facebook').Strategy;
+
 
 // Route definitions
 var data = require('./data.json');
@@ -58,7 +59,6 @@ passport.use(new FacebookStrategy({
         ]
     },
     function(accessToken, refreshToken, profile, done) {
-
         var username = profile._json.name;
         var profilePicture = profile._json.picture.data.url;
         var message, picture = '';
@@ -110,13 +110,12 @@ if ('development' == app.get('env')) {
 // Add routes here
 app.get('/', login.view);
 app.get('/map', homepage.view);
-// app.get('/map2', homepage.viewAlt);
+//app.get('/map2', homepage.viewAlt);
 app.get('/map2', homepage2.view);
 app.get('/findExplorers', list.view);
 app.get('/surprise', surprise.view);
 app.get('/list', list.view);
 app.get('/mapjson', mapjson.view);
-
 
 // facebook auth routes
 app.get('/auth/facebook', passport.authenticate('facebook'));

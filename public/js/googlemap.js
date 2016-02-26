@@ -188,3 +188,4 @@ function callback(result) {
         createMarker(result.location[i].latitude, result.location[i].longitude, contentString);
     }
 }
+
