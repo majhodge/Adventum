@@ -6,7 +6,7 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars')
-//var jsonpack = require('jsonpack/main');
+    //var jsonpack = require('jsonpack/main');
 var passport = require('passport'),
     FacebookStrategy = require('passport-facebook').Strategy;
 
@@ -51,7 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 passport.use(new FacebookStrategy({
         clientID: '757256881074429',
         clientSecret: 'e39d2ca6d80a8f96adad120bacdb20af',
-        callbackURL: "http://adventumapp.herokuapp.com/auth/facebook/callback",
+        callbackURL: "http://localhost:3000/auth/facebook/callback",
         profileFields: ['id',
             'displayName',
             'picture.type(large)',
@@ -64,31 +64,35 @@ passport.use(new FacebookStrategy({
         var message, picture = '';
         var latitude, longitude = 0;
 
-        for (var i = 0; i < profile._json.posts.data.length; i++) {
-            if (profile._json.posts.data[i].place != null) {
-                // console.log("message: " + profile._json.posts.data[i].message);
-                // console.log("name: " + profile._json.posts.data[i].place.name);
-                // console.log("latitude: " + profile._json.posts.data[i].place.location.latitude);
-                // console.log("longitude: " + profile._json.posts.data[i].place.location.longitude);
-                // console.log("city: " + profile._json.posts.data[i].place.location.city);
-                // console.log("===============================================================");
-                if (profile._json.posts.data[i].picture == null) {
-                    picture = "https://lh3.googleusercontent.com/-Q3xtg2x3sOE/AAAAAAAAAAI/AAAAAAAAAA8/S8KiFM0mUw8/s46-c-k/photo.jpg";
-                } else {
-                    picture = profile._json.posts.data[i].picture;
-                }
+        try {
+            for (var i = 0; i < profile._json.posts.data.length; i++) {
+                if (profile._json.posts.data[i].place != null) {
+                    // console.log("message: " + profile._json.posts.data[i].message);
+                    // console.log("name: " + profile._json.posts.data[i].place.name);
+                    // console.log("latitude: " + profile._json.posts.data[i].place.location.latitude);
+                    // console.log("longitude: " + profile._json.posts.data[i].place.location.longitude);
+                    // console.log("city: " + profile._json.posts.data[i].place.location.city);
+                    // console.log("===============================================================");
+                    if (profile._json.posts.data[i].picture == null) {
+                        picture = "https://lh3.googleusercontent.com/-Q3xtg2x3sOE/AAAAAAAAAAI/AAAAAAAAAA8/S8KiFM0mUw8/s46-c-k/photo.jpg";
+                    } else {
+                        picture = profile._json.posts.data[i].picture;
+                    }
 
-                data["location"].push({
-                    "username": username,
-                    "profilePicture": profilePicture,
-                    "message": profile._json.posts.data[i].message,
-                    "picture": picture,
-                    "name": profile._json.posts.data[i].place.name,
-                    "latitude": profile._json.posts.data[i].place.location.latitude,
-                    "longitude": profile._json.posts.data[i].place.location.longitude,
-                    "city": profile._json.posts.data[i].place.location.city
-                });
+                    data["location"].push({
+                        "username": username,
+                        "profilePicture": profilePicture,
+                        "message": profile._json.posts.data[i].message,
+                        "picture": picture,
+                        "name": profile._json.posts.data[i].place.name,
+                        "latitude": profile._json.posts.data[i].place.location.latitude,
+                        "longitude": profile._json.posts.data[i].place.location.longitude,
+                        "city": profile._json.posts.data[i].place.location.city
+                    });
+                }
             }
+        } catch(err) {
+            console.log("poop");
         }
         return done(null, profile);
     }
