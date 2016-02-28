@@ -145,6 +145,7 @@ function createMarker(lat, lng, name) {
 function callback(result) {
     var contentString = '';
     for (var i = 0; i < result.location.length; i++) {
+        console.log(result);
         //console.log(result.location[i]);
 
         // checking for null message
