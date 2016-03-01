@@ -126,12 +126,14 @@ function initMap() {
 }
 
 function createMarker(lat, lng, name) {
+    console.log("lat is ", lat);
+    console.log(typeof(lat));
     var marker = new google.maps.Marker({
         map: map,
         animation: google.maps.Animation.DROP,
         position: {
-            lat: lat,
-            lng: lng
+            lat: parseFloat(lat),
+            lng: parseFloat(lng)
         }
     });
 
@@ -143,6 +145,7 @@ function createMarker(lat, lng, name) {
 }
 
 function callback(result) {
+    console.log(result);
     var contentString = '';
     for (var i = 0; i < result.location.length; i++) {
         //console.log(result.location[i]);
@@ -167,7 +170,7 @@ function callback(result) {
         if (result.location[i].picture != null) {
             var contentString = '<div id="content">' +
                             '<h4 id="firstHeading" class="firstHeading">' +
-                            '<a href = "">' + result.location[i].name + '</a>' + '</h4>' +
+                            '<a href >' + result.location[i].name + '</a>' + '</h4>' +
                             '<img src="' + picture + '" align="center">' +
                             '<div id="bodyContent">' +
                             '<p><b>'+ result.location[i].username + "</b>" + newMessage +
