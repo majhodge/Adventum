@@ -93,7 +93,7 @@ function initMap() {
             lng: -117.237547
         },
         disableDefaultUI: true,
-        zoom: 12
+        zoom: 14
     });
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
