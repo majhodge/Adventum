@@ -16,7 +16,7 @@ var data = require('./data.json');
 var oldData = require('./oldData.json');
 var mapjson = require('./routes/mapjson');
 var index = require('./routes/index');
-var project = require('./routes/project');
+var profile = require('./routes/profile');
 var login = require('./routes/login');
 var homepage = require('./routes/homepage');
 var homepage2 = require('./routes/homepage2');
@@ -116,6 +116,7 @@ app.get('/findExplorers', list.view);
 app.get('/surprise', surprise.view);
 app.get('/list', list.view);
 app.get('/mapjson', mapjson.view);
+app.get('/profile/:index', profile.view);
 
 // facebook auth routes
 app.get('/auth/facebook', passport.authenticate('facebook'));

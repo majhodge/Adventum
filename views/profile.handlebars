@@ -4,11 +4,11 @@
     <title>Adventum</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/homeStyle.css" rel="stylesheet">
+    <link href="../css/homeStyle.css" rel="stylesheet">
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/navBar.css" rel="stylesheet">
+    <link href="../css/navBar.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 
@@ -37,8 +37,7 @@
 
     <div class="bg-solid"></div>
     <div class="container-surprise" style="background-color: #333333; margin-top: 3%" align="center">
-        <i><center><h1>Try this!</h1></center></i>
-        {{#with currPlace}}
+        {{#with profile}}
         <div style="margin-top: 8%">
             <h2>{{name}}</h2>
             <p style="margin-top: 3%; margin-bottom: 15%">
@@ -54,7 +53,7 @@
         </div>
         {{/with}}
     </div>
-    <div>
+    <!-- <div>
         <table width="100%">
             <tr>
                 <td width="100%" align="center">
@@ -62,12 +61,12 @@
                 </td>
             </tr>
         </table>
-    </div>
+    </div> -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <!-- <script src="../routes/surprise.js"></script> -->
     <script>
         function surpriseMe() {

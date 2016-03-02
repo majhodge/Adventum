@@ -54,6 +54,7 @@
 	    {
 	   	"username": "Linh Vuong",
 		"profilePicture": "/images/linh.jpg",
+		"message": "Chicago style is the best!",
 		"picture": "/images/pizza.jpg",
 		"name": "Regents Pizzeria",
 		"latitude": "32.8733719",
@@ -72,6 +73,7 @@
 	    {
 	   	"username": "Peter Piper",
 		"profilePicture": "/images/peter.jpg",
+		"message": "Best cup of coffee!",
 		"picture": "/images/coffee.jpeg",
 		"name": "Better Buzz Coffee",
 		"latitude": "32.8009467",
