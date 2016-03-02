@@ -51,7 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 passport.use(new FacebookStrategy({
         clientID: '757256881074429',
         clientSecret: 'e39d2ca6d80a8f96adad120bacdb20af',
-        callbackURL: "http://adventumapp.herokuapp.com/auth/facebook/callback",
+        callbackURL: "http://localhost:3000/auth/facebook/callback",
         profileFields: ['id',
             'displayName',
             'picture.type(large)',
@@ -63,6 +63,8 @@ passport.use(new FacebookStrategy({
         var profilePicture = profile._json.picture.data.url;
         var message, picture = '';
         var latitude, longitude = 0;
+
+        console.log(profile);
 
         try {
             for (var i = 0; i < profile._json.posts.data.length; i++) {

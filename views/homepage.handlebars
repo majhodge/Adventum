@@ -24,13 +24,15 @@
     <div id="logout" class="overlay">
         <div class="popup">
             <center>
+            {{#with location}}
             <div class="logout-content">
-                Are you sure you want to logout?<br>
+                {{username}}, are you sure you want to logout?<br>
                 <ul class="logout-list">
                     <li class="logout-list"><a href="#" style="background-color: #333333">Cancel</a></li>
                     <li class="logout-list"><a href="/" style="background-color: #00B0B0"><b>Logout</b></a></li>
                 </ul>
             </div>
+            {{/with}}
             </center>
         </div>
     </div>
