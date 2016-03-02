@@ -126,12 +126,14 @@ function initMap() {
 }
 
 function createMarker(lat, lng, name) {
+    console.log("lat is ", lat);
+    console.log(typeof(lat));
     var marker = new google.maps.Marker({
         map: map,
         animation: google.maps.Animation.DROP,
         position: {
-            lat: lat,
-            lng: lng
+            lat: parseFloat(lat),
+            lng: parseFloat(lng)
         }
     });
 
@@ -143,6 +145,7 @@ function createMarker(lat, lng, name) {
 }
 
 function callback(result) {
+    console.log(result);
     var contentString = '';
     for (var i = 0; i < result.location.length; i++) {
         console.log(result);
@@ -153,7 +156,7 @@ function callback(result) {
         if (result.location[i].message == null) {
             newMessage = " was here";
         } else {
-            newMessage = " said: " + result.location[i].message;
+            newMessage = " said: " + '"' + result.location[i].message + '"';
         }
 
         // checking for null picture
@@ -168,8 +171,8 @@ function callback(result) {
         if (result.location[i].picture != null) {
             var contentString = '<div id="content">' +
                             '<h4 id="firstHeading" class="firstHeading">' +
-                            '<a href = "">' + result.location[i].name + '</a>' + '</h4>' +
-                            '<img src="' + picture + '" align="center">' +
+                            '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
+                            '<img src="' + picture + '" style="width:50px;height:50px;">' +
                             '<div id="bodyContent">' +
                             '<p><b>'+ result.location[i].username + "</b>" + newMessage +
                             '</p>' +
@@ -177,7 +180,7 @@ function callback(result) {
         } else {
             var contentString = '<div id="content">' +
                             '<h4 id="firstHeading" class="firstHeading">' +
-                            '<a href = "">' + result.location[i].name + '</a>' + '</h4>' +
+                            '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
                             '<img src="' + picture + '" style="width:40px;height:40px;>' +
                             '<div id="bodyContent">' +
                             '<p><b>'+ result.location[i].username + "</b>" + newMessage +

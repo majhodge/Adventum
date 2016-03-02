@@ -1,3 +1,104 @@
 {
-    "location": []
+    "location": [
+
+	    {
+	    "username": "Ellen Yang",
+		"profilePicture": "/images/ellen.jpg",
+		"message": "Mmmmmm breakfast!",
+		"picture": "/images/hashhouse.jpg",
+		"name": "Hash House A Go Go",
+		"latitude": "32.7438953",
+		"longitude": "-117.160627",
+		"city": "Downtown San Diego"
+	    },
+	    {
+	    "username": "Katie Bielawiec",
+		"profilePicture": "/images/katie.jpg",
+		"message": "Saturday morning hike",
+		"picture": "/images/statereserve.jpg",
+		"name": "Torrey Pines State Natural Reserve",
+		"latitude": "32.9269866",
+		"longitude": "-117.2592619",
+		"city": "Torrey Pines"
+	    },
+	    {
+	    "username": "Ellen Yang",
+		"profilePicture": "/images/ellen.jpg",
+		"message": "Grass jelly <3",
+		"picture": "/images/boba.jpg",
+		"name": "OO Tea",
+		"latitude": "32.8335104",
+		"longitude": "-117.1627403",
+		"city": "Clairemont Mesa"
+	    },
+	   	{
+	    "username": "Katie Bielawiec",
+		"profilePicture": "/images/katie.jpg",
+		"message": "Study break",
+		"picture": "/images/tapex.jpeg",
+		"name": "Tapioca Express",
+		"latitude": "32.8796388",
+		"longitude": "-117.2359676",
+		"city": "La Jolla"
+	    },
+	    {
+	   	"username": "Peter Piper",
+		"profilePicture": "/images/peter.jpg",
+		"message": "Taco Tuesdayyyy",
+		"picture": "/images/tacos.jpg",
+		"name": "The Taco Stand",
+		"latitude": "32.8393346",
+		"longitude": "-117.2768148",
+		"city": "La Jolla"
+	    },
+	    {
+	   	"username": "Linh Vuong",
+		"profilePicture": "/images/linh.jpg",
+		"message": "Chicago style is the best!",
+		"picture": "/images/pizza.jpg",
+		"name": "Regents Pizzeria",
+		"latitude": "32.8733719",
+		"longitude": "-117.2180372",
+		"city": "La Jolla"
+	    },
+	    {
+	   	"username": "Megan Ong",
+		"profilePicture": "/images/megan.jpg",
+		"message": "Watching Deadpool",
+		"name": "ArcLight Cinemas",
+		"latitude": "32.8711298",
+		"longitude": "-117.2138987",
+		"city": "La Jolla"
+	    },
+	    {
+	   	"username": "Peter Piper",
+		"profilePicture": "/images/peter.jpg",
+		"message": "Best cup of coffee!",
+		"picture": "/images/coffee.jpeg",
+		"name": "Better Buzz Coffee",
+		"latitude": "32.8009467",
+		"longitude": "-117.2367559",
+		"city": "Pacific Beach"
+	    },
+	    {
+	    "username": "Darin Smith",
+		"profilePicture": "/images/darin.jpeg",
+		"message": "Quick lunch break",
+		"picture": "/images/hodads.jpg",
+		"name": "Hodad's",
+		"latitude": "32.7472057",
+		"longitude": "-117.2533718",
+		"city": "Ocean Beach"
+	    },
+	    {
+	    "username": "Katie Bielawiec",
+		"profilePicture": "/images/katie.jpg",
+		"message": "Typical Friday Night",
+		"picture": "/images/ballast.jpg",
+		"name": "Ballast Point Brewing and Spirits",
+		"latitude": "32.8880934",
+		"longitude": "-117.1579467",
+		"city": "Mira Mesa"
+	    }
+    ]
 }
