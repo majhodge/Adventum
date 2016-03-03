@@ -145,7 +145,7 @@ function createMarker(lat, lng, name) {
 }
 
 function callback(result) {
-    console.log(result);
+    // console.log(result);
     var contentString = '';
     for (var i = 0; i < result.location.length; i++) {
         console.log(result);
