@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    {{> experiment}}
     <title>Adventum</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,15 +25,13 @@
     <div id="logout" class="overlay">
         <div class="popup">
             <center>
-            {{#with location}}
             <div class="logout-content">
-                {{username}}, are you sure you want to logout?<br>
+                Are you sure you want to logout?<br>
                 <ul class="logout-list">
                     <li class="logout-list"><a href="#" style="background-color: #333333">Cancel</a></li>
                     <li class="logout-list"><a href="/" style="background-color: #00B0B0"><b>Logout</b></a></li>
                 </ul>
             </div>
-            {{/with}}
             </center>
         </div>
     </div>
@@ -67,8 +66,11 @@
         }
     </script>
     <script src="js/googlemap.js" ></script>
+    <script src="js/testing.js" ></script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer>
     </script>
+
+    {{> googleAnalytics}}
 </body>
 
 </html>

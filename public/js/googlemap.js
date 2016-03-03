@@ -93,7 +93,7 @@ function initMap() {
             lng: -117.237547
         },
         disableDefaultUI: true,
-        zoom: 12
+        zoom: 14
     });
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
@@ -145,7 +145,7 @@ function createMarker(lat, lng, name) {
 }
 
 function callback(result) {
-    console.log(result);
+    // console.log(result);
     var contentString = '';
     for (var i = 0; i < result.location.length; i++) {
         console.log(result);

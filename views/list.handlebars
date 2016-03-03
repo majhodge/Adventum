@@ -42,13 +42,13 @@
             <h1 style="margin-bottom: 5%; color: white; text-shadow: 1px 1px black">List View</h1></center>
         {{#each location}}
         <div>
-            <table class="bg-solid-listView-item" width="100%">
+            <a href="profile/{{@index}}"><table class="bg-solid-listView-item" width="100%">
                 <tr>
                     <td valign="top" width="60px" class="bg-solid-border">
                         <img src="{{picture}}" width="60px" height="60px">
                     </td>
                     <td style="padding-left: 8px" align="left" class="bg-solid-border">
-                        <p style="line-height: 125%"><b><a href="profile/{{@index}}" style="color: #00B0B0">{{name}}</a></b>
+                        <p style="line-height: 125%"><font style="color: #00B0B0"><b>{{name}}</b></font>
                         <br><i>City: {{city}}</i></p>
                     </td>
                     <!-- <td align="center" width="30%" style="padding-right: 3px" class="bg-solid-border">
@@ -56,7 +56,7 @@
                         <br>{{username}}
                     </td> -->
                 </tr>
-            </table>
+            </table></a>
         </div>
         {{/each}}
     </div>
