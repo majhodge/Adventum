@@ -174,7 +174,7 @@ function callback(result) {
                             '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
                             '<table>' + '<tr>'+ '<td>'+
                             '<img src="' + picture + '" style="width:50px;height:50px;">' +
-                            '</td>'+ '<td>'+
+                            '</td>'+ '<td style ="padding-left: 8px">'+
                            // '<div id="bodyContent">' +
                             '<b>'+ result.location[i].username + "</b>" + newMessage +
                             '</td>'+'</tr>'+ '</table>'
@@ -185,7 +185,7 @@ function callback(result) {
                             '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
                             '<table>' + '<tr>'+ '<td>' +
                             '<img src="' + picture + '" style="width:40px;height:40px;>' +
-                            '</td>' + '<td>'+
+                            '</td>' + '<td style ="padding-left: 8px">'+
                             //'<div id="bodyContent">' +
                             '<b>'+ result.location[i].username + "</b>" + newMessage +
                             '</td>'+'</tr>' + '</table>'+
