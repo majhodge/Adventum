@@ -98,7 +98,7 @@ function initMap() {
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
 
-    infoWindow = new google.maps.InfoWindow({ maxWidth: 320 });
+    infoWindow = new google.maps.InfoWindow({ maxWidth: 200 });
     myLocation = new google.maps.InfoWindow({
         map: map
     });
@@ -172,7 +172,7 @@ function callback(result) {
             var contentString = '<div id="content">' + 
                             '<h4 id="firstHeading" class="firstHeading">' + 
                             '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
-                            '<table border = "0" width = "50%">' + '<tr>'+ '<td>'+
+                            '<table border = "0">' + '<tr>'+ '<td>'+
                             '<img src="' + picture + '" style="width:50px;height:50px;">' +
                             '</td>'+ '<td style ="padding-left: 8px">'+
                            // '<div id="bodyContent">' +
@@ -183,7 +183,7 @@ function callback(result) {
             var contentString = '<div id="content">' +
                             '<h4 id="firstHeading" class="firstHeading">' +
                             '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
-                            '<table border="0" width = "50%">' + '<tr>'+ '<td>' +
+                            '<table border="0">' + '<tr>'+ '<td>' +
                             '<img src="' + picture + '" style="width:40px;height:40px;>' +
                             '</td>' + '<td style ="padding-left: 8px">'+
                             //'<div id="bodyContent">' +
