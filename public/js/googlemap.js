@@ -175,7 +175,7 @@ function callback(result) {
                             '<table>' + '<tr>'+ '<td>'+
                             '<img src="' + picture + '" style="width:50px;height:50px;">' +
                             '</td>'+ '<td>'+
-                            '<div id="bodyContent">' +
+                           // '<div id="bodyContent">' +
                             '<b>'+ result.location[i].username + "</b>" + newMessage +
                             '</td>'+'</tr>'+ '</table>'
                             '</div>';
@@ -186,7 +186,7 @@ function callback(result) {
                             '<table>' + '<tr>'+ '<td>' +
                             '<img src="' + picture + '" style="width:40px;height:40px;>' +
                             '</td>' + '<td>'+
-                            '<div id="bodyContent">' +
+                            //'<div id="bodyContent">' +
                             '<b>'+ result.location[i].username + "</b>" + newMessage +
                             '</td>'+'</tr>' + '</table>'+
                             '</div>';
