@@ -100,7 +100,8 @@ function initMap() {
 
     infoWindow = new google.maps.InfoWindow({ maxWidth: 200 });
     myLocation = new google.maps.InfoWindow({
-        map: map
+        map: map,
+        zIndex: 99999999
     });
 
     // Try HTML5 geolocation.
