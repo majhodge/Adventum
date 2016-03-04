@@ -98,10 +98,9 @@ function initMap() {
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
 
-    infoWindow = new google.maps.InfoWindow({ maxWidth: 200 });
+    infoWindow = new google.maps.InfoWindow({ maxWidth: 200, zIndex: 99999999 });
     myLocation = new google.maps.InfoWindow({
-        map: map,
-        zIndex: 99999999
+        map: map
     });
 
     // Try HTML5 geolocation.
