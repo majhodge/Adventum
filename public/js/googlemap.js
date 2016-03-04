@@ -172,7 +172,7 @@ function callback(result) {
             var contentString = '<div id="content">' + 
                             '<h4 id="firstHeading" class="firstHeading">' + 
                             '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
-                            '<table border="1">' + '<tr>'+ '<td>'+
+                            '<table>' + '<tr>'+ '<td>'+
                             '<img src="' + picture + '" style="width:50px;height:50px;">' +
                             '</td>'+ '<td>'+
                            // '<div id="bodyContent">' +
@@ -183,7 +183,7 @@ function callback(result) {
             var contentString = '<div id="content">' +
                             '<h4 id="firstHeading" class="firstHeading">' +
                             '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
-                            '<table border ="1">' + '<tr>'+ '<td>' +
+                            '<table>' + '<tr>'+ '<td>' +
                             '<img src="' + picture + '" style="width:40px;height:40px;>' +
                             '</td>' + '<td>'+
                             //'<div id="bodyContent">' +
