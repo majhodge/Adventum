@@ -98,7 +98,7 @@ function initMap() {
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
 
-    infoWindow = new google.maps.InfoWindow();
+    infoWindow = new google.maps.InfoWindow({ maxWidth: 200, zIndex: 99999999 });
     myLocation = new google.maps.InfoWindow({
         map: map
     });
@@ -169,22 +169,26 @@ function callback(result) {
 
         // null picture post
         if (result.location[i].picture != null) {
-            var contentString = '<div id="content">' +
-                            '<h4 id="firstHeading" class="firstHeading">' +
+            var contentString = '<div id="content">' + 
+                            '<h4 id="firstHeading" class="firstHeading">' + 
                             '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
+                            '<table border = "0">' + '<tr>'+ '<td>'+
                             '<img src="' + picture + '" style="width:50px;height:50px;">' +
-                            '<div id="bodyContent">' +
-                            '<p><b>'+ result.location[i].username + "</b>" + newMessage +
-                            '</p>' +
+                            '</td>'+ '<td style ="padding-left: 8px">'+
+                           // '<div id="bodyContent">' +
+                            '<b>'+ result.location[i].username + "</b>" + newMessage +
+                            '</td>'+'</tr>'+ '</table>'
                             '</div>';
         } else {
             var contentString = '<div id="content">' +
                             '<h4 id="firstHeading" class="firstHeading">' +
                             '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
+                            '<table border="0">' + '<tr>'+ '<td>' +
                             '<img src="' + picture + '" style="width:40px;height:40px;>' +
-                            '<div id="bodyContent">' +
-                            '<p><b>'+ result.location[i].username + "</b>" + newMessage +
-                            '</p>' +
+                            '</td>' + '<td style ="padding-left: 8px">'+
+                            //'<div id="bodyContent">' +
+                            '<b>'+ result.location[i].username + "</b>" + newMessage +
+                            '</td>'+'</tr>' + '</table>'+
                             '</div>';
         }
 

@@ -19,7 +19,7 @@ var index = require('./routes/index');
 var profile = require('./routes/profile');
 var login = require('./routes/login');
 var homepage = require('./routes/homepage');
-var homepage2 = require('./routes/homepage2');
+//var homepage2 = require('./routes/homepage2');
 var findExplorers = require('./routes/findExplorers');
 var surprise = require('./routes/surprise');
 var list = require('./routes/list');
@@ -51,7 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 passport.use(new FacebookStrategy({
         clientID: '757256881074429',
         clientSecret: 'e39d2ca6d80a8f96adad120bacdb20af',
-        callbackURL: "http://adventumapp.herokuapp.com/auth/facebook/callback",
+        callbackURL: "http://adventum.herokuapp.com/auth/facebook/callback",
         profileFields: ['id',
             'displayName',
             'picture.type(large)',
@@ -117,7 +117,7 @@ if ('development' == app.get('env')) {
 app.get('/', login.view);
 app.get('/map', homepage.view);
 //app.get('/map2', homepage.viewAlt);
-app.get('/map2', homepage2.view);
+//app.get('/map2', homepage2.view);
 app.get('/surprise', surprise.view);
 app.get('/list', list.view);
 app.get('/mapjson', mapjson.view);
