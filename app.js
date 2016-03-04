@@ -19,7 +19,7 @@ var index = require('./routes/index');
 var profile = require('./routes/profile');
 var login = require('./routes/login');
 var homepage = require('./routes/homepage');
-var homepage2 = require('./routes/homepage2');
+//var homepage2 = require('./routes/homepage2');
 var findExplorers = require('./routes/findExplorers');
 var surprise = require('./routes/surprise');
 var list = require('./routes/list');
@@ -117,7 +117,7 @@ if ('development' == app.get('env')) {
 app.get('/', login.view);
 app.get('/map', homepage.view);
 //app.get('/map2', homepage.viewAlt);
-app.get('/map2', homepage2.view);
+//app.get('/map2', homepage2.view);
 app.get('/surprise', surprise.view);
 app.get('/list', list.view);
 app.get('/mapjson', mapjson.view);
