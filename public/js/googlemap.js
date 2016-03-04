@@ -174,8 +174,7 @@ function callback(result) {
                             '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
                             '<img src="' + picture + '" style="width:50px;height:50px;">' +
                             '<div id="bodyContent">' +
-                            '<p><b>'+ result.location[i].username + "</b>" + newMessage +
-                            '</p>' +
+                            '<b>'+ result.location[i].username + "</b>" + newMessage +
                             '</div>';
         } else {
             var contentString = '<div id="content">' +
@@ -183,8 +182,7 @@ function callback(result) {
                             '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
                             '<img src="' + picture + '" style="width:40px;height:40px;>' +
                             '<div id="bodyContent">' +
-                            '<p><b>'+ result.location[i].username + "</b>" + newMessage +
-                            '</p>' +
+                            '<b>'+ result.location[i].username + "</b>" + newMessage +
                             '</div>';
         }
 
