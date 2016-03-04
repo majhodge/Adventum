@@ -98,7 +98,7 @@ function initMap() {
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
 
-    infoWindow = new google.maps.InfoWindow();
+    infoWindow = new google.maps.InfoWindow({ maxWidth: 320 });
     myLocation = new google.maps.InfoWindow({
         map: map
     });
