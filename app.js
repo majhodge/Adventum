@@ -117,7 +117,7 @@ if ('development' == app.get('env')) {
 app.get('/', login.view);
 app.get('/map', homepage.view);
 //app.get('/map2', homepage.viewAlt);
-app.get('/map2', homepage2.view);
+//app.get('/map2', homepage2.view);
 app.get('/surprise', surprise.view);
 app.get('/list', list.view);
 app.get('/mapjson', mapjson.view);
