@@ -173,7 +173,7 @@ function callback(result) {
                             '<h4 id="firstHeading" class="firstHeading">' +
                             '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
                             '<img src="' + picture + '" style="width:50px;height:50px;">' +
-                            '<div id="bodyContent">' +
+                            //'<div id="bodyContent">' +
                             '<b>'+ result.location[i].username + "</b>" + newMessage +
                             '</div>';
         } else {
@@ -181,7 +181,7 @@ function callback(result) {
                             '<h4 id="firstHeading" class="firstHeading">' +
                             '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
                             '<img src="' + picture + '" style="width:40px;height:40px;>' +
-                            '<div id="bodyContent">' +
+                           // '<div id="bodyContent">' +
                             '<b>'+ result.location[i].username + "</b>" + newMessage +
                             '</div>';
         }
