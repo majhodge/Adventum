@@ -45,6 +45,10 @@ li.navbar-list a:hover {
 	/* margin-top: 13%; */
 }
 
+.roboto {
+	font-family: 'Roboto', sans-serif;
+}
+
 /* The rest of the code in this file is for logout confirmation popup */
 .overlay { /* For popup */
 	position: absolute;
@@ -88,10 +92,12 @@ li.navbar-list a:hover {
 }
 
 .popup .logout-content {
+	font-family: 'Roboto', sans-serif;
 	font-size: 120%;
 }
 
 ul.logout-list {
+	font-family: 'Roboto', sans-serif;
 	list-style-type: none;
 	margin-top: 6%;
 	padding: 0;
@@ -102,6 +108,7 @@ ul.logout-list {
 }
 
 li.logout-list {
+	font-family: 'Roboto', sans-serif;
 	float: left; /* Creates horizontal nav bar */
 	width: 50%;
 }
@@ -115,7 +122,7 @@ li.logout-list a{
 	width: 95%;
     border: 0px solid #616261;
     font-size: 110%;
-    font-family: arial, helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
 	color: #FFFFFF;
 }
 

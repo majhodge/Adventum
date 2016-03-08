@@ -97,6 +97,7 @@ function initMap() {
     });
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
+    map.setOptions({ minZoom: 5, maxZoom: 16 });
 
     infoWindow = new google.maps.InfoWindow({ maxWidth: 200, zIndex: 99999999 });
     myLocation = new google.maps.InfoWindow({
@@ -170,7 +171,7 @@ function callback(result) {
         // null picture post
         if (result.location[i].picture != null) {
             var contentString = '<div id="content">' + 
-                            '<h4 id="firstHeading" class="firstHeading">' + 
+                            '<h4 id="firstHeading" class="roboto">' + 
                             '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
                             '<table border = "0">' + '<tr>'+ '<td>'+
                             '<img src="' + picture + '" style="width:50px;height:50px;">' +
@@ -181,7 +182,7 @@ function callback(result) {
                             '</div>';
         } else {
             var contentString = '<div id="content">' +
-                            '<h4 id="firstHeading" class="firstHeading">' +
+                            '<h4 id="firstHeading" class="roboto">' +
                             '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
                             '<table border="0">' + '<tr>'+ '<td>' +
                             '<img src="' + picture + '" style="width:40px;height:40px;>' +

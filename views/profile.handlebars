@@ -8,6 +8,7 @@
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link href="../css/navBar.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
@@ -39,14 +40,14 @@
     <div class="container-surprise" style="background-color: #333333; margin-top: 3%" align="center">
         {{#with profile}}
         <div style="margin-top: 8%">
-            <h2>{{name}}</h2>
-            <p style="margin-top: 3%; margin-bottom: 15%">
+            <h2 class="roboto">{{name}}</h2>
+            <p class="roboto" style="margin-top: 3%; margin-bottom: 15%">
                 <b>Where: </b>{{city}}
             </br>
                 <img src="{{picture}}" height="40%" width="70%" style="padding-top: 3%">
             </p>
-            <h3><b>Friends who've checked in:</b></h3>
-            <p style="margin-top: 5%" align="left">
+            <h3 class="roboto"><b>Friends who've checked in:</b></h3>
+            <p class="roboto" style="margin-top: 5%" align="left">
                 <img src="{{profilePicture}}" height="50" width="50" style="padding-right: 5px">
                 <b>{{username}}:</b>
                 "{{message}}"
