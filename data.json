@@ -100,6 +100,16 @@
 		"latitude": "32.8880934",
 		"longitude": "-117.1579467",
 		"city": "Mira Mesa"
+	    },
+	    {
+	    "username": "Katie Bielawiec",
+		"profilePicture": "/images/katie.jpg",
+		"message": "Real life user testing. Check out our app at adventum.herokuapp.com (looks best on mobile)",
+		"picture": "/images/brunch.jpg",
+		"name": "Cody's La Jolla",
+		"latitude": "32.8485445",
+		"longitude": "-117.2744678",
+		"city": "La Jolla"
 	    }
     ]
 }
