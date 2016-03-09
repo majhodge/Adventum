@@ -6,6 +6,10 @@ var map;
 var infoWindow;
 var myLocation;
 
+var jsonlist = [];
+var myLat;
+var myLng;
+
 function initMap() {
     'use strict';
     $.get("/mapjson", callback);
@@ -112,8 +116,11 @@ function initMap() {
                 lng: position.coords.longitude
             };
 
+            myLat = parseFloat(position.coords.latitude);
+            myLng = parseFloat(position.coords.longitude);
+            //manhattanDistanceCalc();
+
             map.setCenter(pos);
-            // The flag of where you are at 
             myLocation.setPosition(pos);
             myLocation.setContent('You Are Here!');
 
@@ -127,8 +134,6 @@ function initMap() {
 }
 
 function createMarker(lat, lng, name) {
-    console.log("lat is ", lat);
-    console.log(typeof(lat));
     var marker = new google.maps.Marker({
         map: map,
         animation: google.maps.Animation.DROP,
@@ -137,13 +142,36 @@ function createMarker(lat, lng, name) {
             lng: parseFloat(lng)
         }
     });
-
     google.maps.event.addListener(marker, 'click', function() {
         infoWindow.setContent(name);
         infoWindow.open(map, this);
-        
+
     });
 }
+// ULTIMATE FAIL! THIS WON'T WORK ON THE CLIENT SIDE! 
+// function manhattanDistanceCalc() {
+//     console.log("getting geolocaiton");
+//     for (var i = 0; i < result.location.length; i++) {
+//         var latDiff = myLat - result.location[i].latitude;
+//         var lngDiff = myLng - result.location[i].longitude;
+//         var manhattanDistance = latDiff + lngDiff;
+//         jsonlist.push({
+//             "manhattanDistance": manhattanDistance,
+//             "name": result.location[i].name,
+//             "username": result.location[i].username,
+//             "message": result.location[i].message,
+//             "city": result.location[i].city,
+//             "picture": result.location[i].picture,
+//             "profilePicture": result.location[i].profilePicture,
+//             "latitude": result.location[i].latitude,
+//             "longitude": result.location[i].longitude
+//         });
+//     }
+//     jsonlist.sort(function(a, b) {
+//         return parseFloat(a.manhattanDistance) - parseFloat(b.manhattanDistance);
+//     });
+//     console.log(jsonlist);
+// }
 
 function callback(result) {
     // console.log(result);
@@ -170,31 +198,30 @@ function callback(result) {
 
         // null picture post
         if (result.location[i].picture != null) {
-            var contentString = '<div id="content">' + 
-                            '<h4 id="firstHeading" class="roboto">' + 
-                            '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
-                            '<table border = "0">' + '<tr>'+ '<td>'+
-                            '<img src="' + picture + '" style="width:50px;height:50px;">' +
-                            '</td>'+ '<td style ="padding-left: 8px">'+
-                           // '<div id="bodyContent">' +
-                            '<b>'+ result.location[i].username + "</b>" + newMessage +
-                            '</td>'+'</tr>'+ '</table>'
-                            '</div>';
+            var contentString = '<div id="content">' +
+                '<h4 id="firstHeading" class="roboto">' +
+                '<a href ="/profile/' + i + '">' + result.location[i].name + '</a>' + '</h4>' +
+                '<table border = "0">' + '<tr>' + '<td>' +
+                '<img src="' + picture + '" style="width:50px;height:50px;">' +
+                '</td>' + '<td style ="padding-left: 8px">' +
+                // '<div id="bodyContent">' +
+                '<b>' + result.location[i].username + "</b>" + newMessage +
+                '</td>' + '</tr>' + '</table>'
+            '</div>';
         } else {
             var contentString = '<div id="content">' +
-                            '<h4 id="firstHeading" class="roboto">' +
-                            '<a href ="/profile/' + i +'">' + result.location[i].name + '</a>' + '</h4>' +
-                            '<table border="0">' + '<tr>'+ '<td>' +
-                            '<img src="' + picture + '" style="width:40px;height:40px;>' +
-                            '</td>' + '<td style ="padding-left: 8px">'+
-                            //'<div id="bodyContent">' +
-                            '<b>'+ result.location[i].username + "</b>" + newMessage +
-                            '</td>'+'</tr>' + '</table>'+
-                            '</div>';
+                '<h4 id="firstHeading" class="roboto">' +
+                '<a href ="/profile/' + i + '">' + result.location[i].name + '</a>' + '</h4>' +
+                '<table border="0">' + '<tr>' + '<td>' +
+                '<img src="' + picture + '" style="width:40px;height:40px;>' +
+                '</td>' + '<td style ="padding-left: 8px">' +
+                //'<div id="bodyContent">' +
+                '<b>' + result.location[i].username + "</b>" + newMessage +
+                '</td>' + '</tr>' + '</table>' +
+                '</div>';
         }
 
-        
+
         createMarker(result.location[i].latitude, result.location[i].longitude, contentString);
     }
 }
-

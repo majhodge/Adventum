@@ -24,56 +24,44 @@
     <div id="logout" class="overlay">
         <div class="popup">
             <center>
-            <div class="logout-content">
-                Are you sure you want to logout?<br>
-                <ul class="logout-list">
-                    <li class="logout-list"><a href="#" style="background-color: #333333">Cancel</a></li>
-                    <li class="logout-list"><a href="/" style="background-color: #00B0B0"><b>Logout</b></a></li>
-                </ul>
-            </div>
+                <div class="logout-content">
+                    Are you sure you want to logout?
+                    <br>
+                    <ul class="logout-list">
+                        <li class="logout-list"><a href="#" style="background-color: #333333">Cancel</a></li>
+                        <li class="logout-list"><a href="/" style="background-color: #00B0B0"><b>Logout</b></a></li>
+                    </ul>
+                </div>
             </center>
         </div>
     </div>
     <!-- End of Top Nav Bar code -->
-
     <div class="bg-solid"></div>
     <div class="container-surprise" style="background-color: #333333; margin-top: 3%" align="center">
         {{#with profile}}
-        <div style="margin-top: 8%">
-            <h2 class="roboto">{{name}}</h2>
-            <p class="roboto" style="margin-top: 3%; margin-bottom: 15%">
+        <div style="margin-top: 5%">
+            <h2 class="roboto"><b>{{name}}</b></h2>
+            <p class="roboto" style="margin-top: 3%; margin-bottom: 8%">
                 <b>Where: </b>{{city}}
-            </br>
-                <img src="{{picture}}" height="40%" width="70%" style="padding-top: 3%">
+                </br>
+                <img src="{{picture}}" height="50%" width="90%" style="padding-top: 3%">
             </p>
-            <h3 class="roboto"><b>Friends who've checked in:</b></h3>
-            <p class="roboto" style="margin-top: 5%" align="left">
+            <h4 class="roboto"><b>Friends who've checked in:</b></h4>
+            <p class="roboto" style="margin-top: 5%" align="center">
                 <img src="{{profilePicture}}" height="50" width="50" style="padding-right: 5px">
-                <b>{{username}}:</b>
-                "{{message}}"
+                <b>{{username}}:</b> "{{message}}"
             </p>
         </div>
         {{/with}}
     </div>
-    <!-- <div>
-        <table width="100%">
-            <tr>
-                <td width="100%" align="center">
-                    <button class="btn-surprise-again" onclick="surpriseMe()">Not feeling this? Click me again!</button>
-                </td>
-            </tr>
-        </table>
-    </div> -->
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../js/bootstrap.min.js"></script>
-    <!-- <script src="../routes/surprise.js"></script> -->
     <script>
-        function surpriseMe() {
-            window.location.href = "/surprise";
-        }
+    function surpriseMe() {
+        window.location.href = "/surprise";
+    }
     </script>
 </body>
 
