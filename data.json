@@ -42,8 +42,8 @@
 		"city": "La Jolla"
 	    },
 	    {
-	   	"username": "Peter Piper",
-		"profilePicture": "/images/peter.jpg",
+	   	"username": "Jonathan McAlexander",
+		"profilePicture": "/images/jon.jpg",
 		"message": "Taco Tuesdayyyy",
 		"picture": "/images/tacos.jpg",
 		"name": "The Taco Stand",
@@ -72,8 +72,8 @@
 		"city": "La Jolla"
 	    },
 	    {
-	   	"username": "Peter Piper",
-		"profilePicture": "/images/peter.jpg",
+	   	"username": "Jonathan McAlexander",
+		"profilePicture": "/images/jon.jpg",
 		"message": "Best cup of coffee!",
 		"picture": "/images/coffee.jpeg",
 		"name": "Better Buzz Coffee",
