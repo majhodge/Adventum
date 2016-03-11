@@ -110,6 +110,16 @@
 		"latitude": "32.8485445",
 		"longitude": "-117.2744678",
 		"city": "La Jolla"
+	    },
+	    {
+	    "username": "Ellen Yang",
+	    "profilePicture": "/images/ellen.jpg",
+	    "message": "Philly cheesesteak. Yum!",
+	    "picture": "/images/cheesesteak.jpg",
+	    "name": "Home Plate",
+	    "latitude": "32.885971",
+	    "longitude": "-117.240474",
+	    "city": "La Jolla"
 	    }
     ]
 }
